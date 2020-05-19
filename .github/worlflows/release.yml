@@ -1,0 +1,30 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - master
+      - next
+
+jobs:
+  publish-npm:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Changes
+        uses: actions/checkout@v2
+      - name: Setup Nodejs
+        uses: actions/setup-node@v1
+        with:
+          node-version: '13.x'
+      - name: Installing dependencies
+        run: yarn
+      - name: Building
+        run: yarn build
+      - name: Release
+        run: |
+          npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
+          npx semantic-release
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+          CI: true
