@@ -1,4 +1,4 @@
-# rollup-plugin-sri 🌐🔒
+# rollup-plugin-sri
 
 > Because web security should not be difficult.
 > This plugin adds [subresource integrity](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity) attributes to all resources imported by your html files.
