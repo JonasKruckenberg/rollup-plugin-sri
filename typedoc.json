@@ -1,0 +1,8 @@
+{
+  "mode": "file",
+  "out": "docs",
+  "stripInternal": true,
+  "readme": "none",
+  "inputFiles": ["index.ts"],
+  "hideGenerator": true
+}
