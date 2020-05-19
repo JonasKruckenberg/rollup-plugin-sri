@@ -78,11 +78,6 @@
               "release": "patch"
             },
             {
-              "type": "docs",
-              "scope": "package",
-              "release": "patch"
-            },
-            {
               "type": "refactor",
               "release": "patch"
             },
