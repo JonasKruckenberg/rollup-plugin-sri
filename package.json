@@ -1,0 +1,75 @@
+{
+  "name": "rollup-plugin-sri",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "author": {
+    "name": "Jonas Kruckenberg",
+    "email": "iterpre@protonmail.com",
+    "url": "https://jonaskruckenberg.de"
+  },
+  "description": "🔒 A small rollup plugin that adds subresource integrity tags to all your html files",
+  "keywords": [
+    "rollup-plugin",
+    "subresource",
+    "subresource-integrity",
+    "security"
+  ],
+  "directories": {
+    "doc": "docs",
+    "example": "examples"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development rollup -cw",
+    "build": "cross-env NODE_ENV=development rollup -c",
+    "test": "mocha",
+    "test-live": "mocha --watch --watch-files test --reporter min",
+    "coverage": "nyc -r lcov -e .ts -x \"*.test.ts\" npm run test",
+    "docs": "typedoc --options ./typedoc.json",
+    "commit": "git cz"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.11",
+    "@types/cheerio": "^0.22.18",
+    "@types/mocha": "^7.0.2",
+    "@types/node": "^14.0.3",
+    "chai": "^4.2.0",
+    "commitizen": "^4.1.2",
+    "cross-env": "^7.0.2",
+    "cz-conventional-changelog": "^3.2.0",
+    "mocha": "^7.1.2",
+    "nyc": "^15.0.1",
+    "rollup": "^2.10.4",
+    "rollup-plugin-typescript2": "^0.27.1",
+    "semantic-release": "^17.0.7",
+    "ts-node": "^8.10.1",
+    "typedoc": "^0.17.7",
+    "typedoc-plugin-markdown": "^2.2.17",
+    "typescript": "^3.9.2"
+  },
+  "release": {
+    "branches": [
+      {
+        "name": "master"
+      },
+      {
+        "name": "next",
+        "channel": "next",
+        "prerelease": true
+      }
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}

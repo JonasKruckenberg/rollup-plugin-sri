@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "alwaysStrict": true,
+    "declaration": true,
+    "declarationDir": "dist",
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "Node",
+    "strictNullChecks": true,
+    "esModuleInterop": true
+  },
+  "include": ["index.ts"],
+  "exclude": ["node_modules"]
+}
