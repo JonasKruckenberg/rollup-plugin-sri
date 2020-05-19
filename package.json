@@ -10,7 +10,7 @@
     "email": "iterpre@protonmail.com",
     "url": "https://jonaskruckenberg.de"
   },
-  "description": "A small rollup plugin that adds subresource integrity tags to all your html files 🔒",
+  "description": "🔒 A small rollup plugin that adds subresource integrity tags to all your html files",
   "keywords": [
     "rollup-plugin",
     "subresource",
