@@ -1,5 +1,6 @@
 import cheerio from 'cheerio'
 import { createHash } from 'crypto'
+import { basename } from 'path'
 import { OutputBundle, OutputOptions, OutputChunk, OutputAsset } from 'rollup'
 
 interface PluginOptions {
@@ -44,12 +45,12 @@ export default (options?: PluginOptions) => {
         if (chunk.fileName.endsWith('html')) {
           const $ = cheerio.load(chunk.source.toString())
           $(selectors.join()).each((index, el) => {
-            const id = el.attribs.href || el.attribs.src
+            const id = basename(el.attribs.href || el.attribs.src)
             if (!id) return
             // @ts-ignore for now because code is not in type asset and source is not in type chunks
-            const source = bundle[id].code || bundle[id].source
+            const source = bundle[id]?.code || bundle[id]?.source
             if (!source) {
-              return this.warn(`${source} was referenced in html file but not in rollup bundle`)
+              return this.warn(`could not find source code for file ${source}`)
             }
             const hashes = hashAlgorithms.map((algorithm) => generateIdentity(source, algorithm))
             el.attribs.integrity = hashes.join(' ')
