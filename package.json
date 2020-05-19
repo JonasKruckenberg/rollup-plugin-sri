@@ -10,17 +10,16 @@
     "email": "iterpre@protonmail.com",
     "url": "https://jonaskruckenberg.de"
   },
-  "description": "A small rollup plugin that adds subresource integrity tags to all your html files 🔒",
+  "description": "Add subresource integrity tags to all your html files 🔒",
   "keywords": [
     "rollup-plugin",
     "subresource",
     "subresource-integrity",
     "security"
   ],
-  "directories": {
-    "doc": "docs",
-    "example": "examples"
-  },
+  "repository": "https://github.com/JonasKruckenberg/rollup-plugin-sri.git",
+  "bugs": "https://github.com/JonasKruckenberg/rollup-plugin-sri/issues",
+  "homepage": "https://github.com/JonasKruckenberg/rollup-plugin-sri",
   "files": [
     "dist"
   ],
