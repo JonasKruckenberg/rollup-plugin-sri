@@ -54,22 +54,6 @@ Which then gets turned into this:
 I generally dont't think one has to change much, but if you're unhappy with something open an issue,
 or create a pull request, it's greatly appreciated!
 
-You can fork the repository and use the following commands:
-
-### `yarn dev` (`npm run dev`)
-
-### `yarn build` (`npm run build`)
-
-### `yarn test` (`npm run test`)
-
-### `yarn test-live` (`npm run test-live`)
-
-### `yarn coverage` (`npm run coverage`)
-
-### `yarn docs` (`npm run docs`)
-
-### `yarn commit` (`npm run commit`)
-
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
