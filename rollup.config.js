@@ -2,6 +2,11 @@ import pkg from './package.json'
 import typescript from 'rollup-plugin-typescript2'
 
 const production = process.env.NODE_ENV === 'production'
+const banner = `/* ${pkg.name}
+v${pkg.version}
+By ${pkg.author.name} <${pkg.author.email}> (${pkg.author.url})
+${new Date().toISOString()}
+*/`
 
 export default {
   input: 'index.ts',
@@ -11,15 +16,14 @@ export default {
       format: 'cjs',
       sourcemap: production,
       compact: production,
-      banner: `/* rollup-plugin-sri\nv${pkg.version}\nBy ${
-        pkg.author
-      }\n${new Date().toISOString()}*/`
+      banner
     },
     {
       file: pkg.module,
       format: 'es',
       sourcemap: production,
-      compact: production
+      compact: production,
+      banner
     }
   ],
   plugins: [
