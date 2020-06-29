@@ -7,7 +7,7 @@ on:
       - next
 
 jobs:
-  publish-npm:
+  publish:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Changes
@@ -15,16 +15,17 @@ jobs:
       - name: Setup Nodejs
         uses: actions/setup-node@v1
         with:
-          node-version: '13.x'
+          node-version: '14.x'
       - name: Installing dependencies
         run: yarn
       - name: Building
-        run: yarn build
+        run: yarn bundle
+      - name: Generate Docs
+        run: yarn docs
       - name: Release
         run: |
           npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
           npx semantic-release
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
           CI: true

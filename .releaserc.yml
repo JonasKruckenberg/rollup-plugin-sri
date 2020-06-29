@@ -1,0 +1,24 @@
+branches:
+  - master
+  - name: next
+    channel: next
+    prerelease: true
+plugins:
+  - - '@semantic-release/commit-analyzer'
+    - preset: angular
+      releaseRules:
+        - type: docs
+          release: patch
+  - - '@semantic-release/release-notes-generator'
+  - - '@semantic-release/changelog'
+    - changelogFile: docs/CHANGELOG.md
+  - - '@semantic-release/github'
+    - assignees:
+        - JonasKruckenberg
+      assets: dist/**
+  - - '@semantic-release/npm'
+  - - '@semantic-release/git'
+    - assets:
+        - docs/**
+        - package.json
+        - yarn.lock
