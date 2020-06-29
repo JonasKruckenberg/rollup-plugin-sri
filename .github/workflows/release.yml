@@ -19,7 +19,7 @@ jobs:
       - name: Installing dependencies
         run: yarn
       - name: Building
-        run: yarn bundle
+        run: yarn build
       - name: Generate Docs
         run: yarn docs
       - name: Release
