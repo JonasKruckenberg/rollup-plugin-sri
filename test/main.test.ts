@@ -26,7 +26,15 @@ describe('sri-plugin', () => {
 		await plugin.writeBundle(
 			{ dir: 'test/files' },
 			{
-				'index.html': { source: await fs.readFile('test/files/index.html', 'utf8') },
+				'index.html': {
+					source: `<!DOCTYPE html>
+				<html lang="en">
+					<head></head>
+					<body>
+						<script src="index.js"></script>
+					</body>
+				</html>`
+				},
 				'index.js': {}
 			}
 		)
@@ -45,7 +53,15 @@ describe('sri-plugin', () => {
 		await plugin.writeBundle(
 			{ dir: 'test/files' },
 			{
-				'index.html': { source: await fs.readFile('test/files/index.html', 'utf8') },
+				'index.html': {
+					source: `<!DOCTYPE html>
+				<html lang="en">
+					<head></head>
+					<body>
+						<script src="index.js"></script>
+					</body>
+				</html>`
+				},
 				'index.js': {}
 			}
 		)
@@ -62,7 +78,15 @@ describe('sri-plugin', () => {
 		await plugin.writeBundle(
 			{ dir: 'test/files' },
 			{
-				'index.html': { source: await fs.readFile('test/files/index.html', 'utf8') },
+				'index.html': {
+					source: `<!DOCTYPE html>
+				<html lang="en">
+					<head></head>
+					<body>
+						<script src="index.js"></script>
+					</body>
+				</html>`
+				},
 				'index.js': {}
 			}
 		)
@@ -79,7 +103,17 @@ describe('sri-plugin', () => {
 		await plugin.writeBundle(
 			{ dir: 'test/files' },
 			{
-				'index.html': { source: await fs.readFile('test/files/index2.html', 'utf8') },
+				'index.html': {
+					source: `<!DOCTYPE html>
+				<html lang="en">
+					<head></head>
+					<link
+						rel="stylesheet"
+						href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+					/>
+					<body></body>
+				</html>`
+				},
 				'index.js': {}
 			}
 		)
@@ -98,7 +132,16 @@ describe('sri-plugin', () => {
 		await plugin.writeBundle(
 			{ dir: 'test/files' },
 			{
-				'index.html': { source: await fs.readFile('test/files/index.html', 'utf8') },
+				'index.html': {
+					source: `<!DOCTYPE html>
+				<html lang="en">
+					<head></head>
+					<body>
+						<script src="index.js"></script>
+					</body>
+				</html>
+				`
+				},
 				'index.js': {}
 			}
 		)
@@ -115,7 +158,17 @@ describe('sri-plugin', () => {
 		await plugin.writeBundle(
 			{ dir: 'test/files' },
 			{
-				'index.html': { source: await fs.readFile('test/files/index3.html', 'utf8') },
+				'index.html': {
+					source: `<!DOCTYPE html>
+				<html lang="en">
+					<head>
+						<link rel="stylesheet" href="index.js"></link>
+					</head>
+					<body>
+					</body>
+				</html>
+				`
+				},
 				'index.js': {}
 			}
 		)
@@ -132,12 +185,67 @@ describe('sri-plugin', () => {
 		await plugin.writeBundle(
 			{ dir: 'test/files' },
 			{
-				'index.html': { source: await fs.readFile('test/files/index4.html', 'utf8') },
+				'index.html': {
+					source: `<!DOCTYPE html>
+				<html lang="en">
+					<head>
+						<link rel="font" href="index.js"></link>
+					</head>
+					<body>
+					</body>
+				</html>
+				`
+				},
 				'index.js': {}
 			}
 		)
 		const $ = cheerio.load(await fs.readFile('test/files/index.html', 'utf8'))
 		expect($('link').attr('integrity')).to.be.undefined
 		expect($('link').attr('crossorigin')).to.be.undefined
+	})
+
+	it('escapes when source could not be found', async () => {
+		const plugin = sri()
+
+		await plugin.writeBundle(
+			{ dir: 'test/files' },
+			{
+				'index.html': {
+					source: `<!DOCTYPE html>
+				<html lang="en">
+					<head>
+					</head>
+					<body>
+						<script src="404.js"></script>
+					</body>
+				</html>
+				`
+				},
+				'index.js': {}
+			}
+		)
+	})
+
+	it('escapes when html tag has no href or src attribute', async () => {
+		const plugin = sri()
+
+		await plugin.writeBundle(
+			{ dir: 'test/files' },
+			{
+				'index.html': {
+					source: `<!DOCTYPE html>
+				<html lang="en">
+					<head>
+					</head>
+					<body>
+						<script></script>
+						<link />
+					</body>
+				</html>
+				`
+				},
+				'index.js': {}
+			}
+		)
 	})
 })

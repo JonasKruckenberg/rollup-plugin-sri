@@ -27,7 +27,7 @@
 		"dev": "cross-env NODE_ENV=development rollup -cw",
 		"build": "cross-env NODE_ENV=development rollup -c",
 		"test": "cross-env NODE_ENV=development jest --config jest.json",
-		"coverage": "nyc -r lcov -e .ts -x \"*.test.ts\" npm run test",
+		"coverage": "cross-env NODE_ENV=development jest --config jest.json --coverage",
 		"docs": "typedoc --options ./typedoc.json",
 		"commit": "git cz"
 	},
@@ -37,6 +37,7 @@
 		"node-fetch": "^2.6.0"
 	},
 	"devDependencies": {
+		"@istanbuljs/nyc-config-typescript": "^1.0.1",
 		"@rollup/plugin-html": "^0.2.0",
 		"@semantic-release/changelog": "^5.0.1",
 		"@semantic-release/commit-analyzer": "^8.0.1",
