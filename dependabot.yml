@@ -1,0 +1,9 @@
+version: 2
+updates:
+  - package-ecosystem: 'yarn'
+    directory: '/'
+    schedule:
+      interval: 'daily'
+
+    assignees:
+      - JonasKruckenberg
