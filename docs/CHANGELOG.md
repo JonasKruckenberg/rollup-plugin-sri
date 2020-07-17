@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/JonasKruckenberg/rollup-plugin-sri/compare/v1.2.1...v1.2.2) (2020-07-17)
+
+
+### Bug Fixes
+
+* fix issues with tags not having src or href attributes and invalid links ([aa46b6b](https://github.com/JonasKruckenberg/rollup-plugin-sri/commit/aa46b6b81485a98f358659a4cbfcf7b2db23f017))
+
 ## [1.2.1](https://github.com/JonasKruckenberg/rollup-plugin-sri/compare/v1.2.0...v1.2.1) (2020-07-17)
 
 
