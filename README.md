@@ -1,7 +1,8 @@
 # rollup-plugin-sri
 
 > Because web security should not be difficult.
-> This plugin adds [subresource integrity](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity) attributes to all resources imported by your html files.
+
+This plugin adds [subresource integrity](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity) attributes to all resources imported by your html files.
 
 ## Usage
 
@@ -9,22 +10,22 @@ Just use this plugin together with another plugin that outputs an html file, lik
 It will then generate `integrity` and `crossorigin` attributes for all script tags and all link rel="stylesheet" tags.
 
 ```js
-import html from 'some-html-plugin' // @rollup/plugin-html for example
+import html from '@rollup/plugin-html' // or any other html-plugin
 import sri from 'rollup-plugin-sri'
 
 export default {
-	input: 'index.js',
-	output: {
-		file: 'out.js',
-		format: 'es'
-	},
-	plugins: [html(), sri()]
+  input: 'index.js',
+  output: {
+    file: 'out.js',
+    format: 'es'
+  },
+  plugins: [html(), sri()]
 }
 ```
 
 ## Examples
 
-### Local file
+### Basic
 
 You might have a script tag in your html to include a javascript file like this:
 
@@ -36,21 +37,21 @@ Which then gets turned into this:
 
 ```html
 <script
-	src="index.js"
-	integrity="sha512-nbecVo2rGsF6Q3d4sK/sF4AmMv3eIxXpjk6Larv6iDUWeaRjjYL44RyK45vPO3Aav/ep6qTgbUAebC20uEGq8g== sha384-zFyvltviTuMi40r9uTjP6Cc/kdJy3hboH2SbOT2Q7UaXK8c4+DtTEAG16VM0H4tP"
-	crossorigin="anonymous"
+  src="index.js"
+  integrity="sha512-nbecVo2rGsF6Q3d4sK/sF4AmMv3eIxXpjk6Larv6iDUWeaRjjYL44RyK45vPO3Aav/ep6qTgbUAebC20uEGq8g== sha384-zFyvltviTuMi40r9uTjP6Cc/kdJy3hboH2SbOT2Q7UaXK8c4+DtTEAG16VM0H4tP"
+  crossorigin="anonymous"
 ></script>
 ```
 
-### CDN stylesheet
+### External dependencies
 
 Let's say you're using Bootstrap on your page, but it get dynamically injected so you can't set the integrity attribute yourself. <br />
 The html will then look something like this:
 
 ```html
 <link
-	rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+  rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
 />
 ```
 
@@ -58,10 +59,10 @@ This plugin will turn it into the following:
 
 ```html
 <link
-	rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-	crossorigin="anonymous"
+  rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+  integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+  crossorigin="anonymous"
 />
 ```
 
@@ -74,17 +75,17 @@ import html from '@rollup/plugin-html' // @rollup/plugin-html for example
 import sri from 'rollup-plugin-sri'
 
 export default {
-	input: 'index.js',
-	output: {
-		file: 'out.js',
-		format: 'es'
-	},
-	plugins: [
-		html(),
-		sri({
-			algorithms: ['sha1', 'md5', 'sha512']
-		})
-	]
+  input: 'index.js',
+  output: {
+    file: 'out.js',
+    format: 'es'
+  },
+  plugins: [
+    html(),
+    sri({
+      algorithms: ['sha1', 'md5', 'sha512']
+    })
+  ]
 }
 ```
 
@@ -98,9 +99,9 @@ This config will generate an output like this:
 
 ```html
 <script
-	src="index.js"
-	integrity="sha1-uwq/zzhXJzUJKIrPcWeL6RkTC8I= md5-illu96GKKoep5d+RUptcBw== sha512-k2VO1XnXo7MN/pqEHWCJYyn4D2d5z0FSDRvIrz4WPmw4VTPNhnSMJRvAwz2Llaij45VU35+eO3eQjydVhGggLg=="
-	crossorigin="anonymous"
+  src="index.js"
+  integrity="sha1-uwq/zzhXJzUJKIrPcWeL6RkTC8I= md5-illu96GKKoep5d+RUptcBw== sha512-k2VO1XnXo7MN/pqEHWCJYyn4D2d5z0FSDRvIrz4WPmw4VTPNhnSMJRvAwz2Llaij45VU35+eO3eQjydVhGggLg=="
+  crossorigin="anonymous"
 ></script>
 ```
 
@@ -110,61 +111,50 @@ This config will generate an output like this:
 
 ### `Optional` active
 
-• **active**? : _undefined | false | true_
-
-_Defined in [index.ts:41](https://github.com/JonasKruckenberg/rollup-plugin-sri/blob/bdf0f48/index.ts#L41)_
+Type: _boolean_ <br/>
+**`default`** true
 
 Can be used to disable the plugin, for example when used together with hot-module-reloading.
-
-**`default`** true
 
 ---
 
 ### `Optional` algorithms
 
-• **algorithms**? : _string[]_
-
-_Defined in [index.ts:27](https://github.com/JonasKruckenberg/rollup-plugin-sri/blob/bdf0f48/index.ts#L27)_
+Type: _Array[string]_ <br/>
+**`default`** ["sha384"]
 
 A list of hashing algorithms to use when computing the integrity attribute.
-The hashing algorithm has to be supported by the nodejs version you're running on.
-Standard hash functions are: `sha256`, `sha384` and `sha512`.
+The hashing algorithm has to be supported by the nodejs version you're running on and by the Browser you're targeting.
+Browsers will ignore unknown hashing functions.
+Standard hash functions as defined in the [subresource integrity specification](https://w3c.github.io/webappsec-subresource-integrity/#hash-functions) are: `sha256`, `sha384` and `sha512`.
 
 > NOTE: While browser vendors are free to support more algorithms than those stated above,
 > they generally do not accept `sha1` and `md5` hashes.
-
-**`default`** ["sha384"]
 
 ---
 
 ### `Optional` crossorigin
 
-• **crossorigin**? : _"anonymous" | "use-credentials"_
+Type: _"anonymous" | "use-credentials"_ <br/>
+**`default`** "anonymous"
 
-_Defined in [index.ts:35](https://github.com/JonasKruckenberg/rollup-plugin-sri/blob/bdf0f48/index.ts#L35)_
-
-You can also specify the value for the crossorigin attribute.
+Specifies the value for the crossorigin attribute.
 This attribute has to be set to prevent cross-origin data leakage.
 The default value `anonymous` should be okay for normal use.
 see: [the W3C spec](https://www.w3.org/TR/SRI/#cross-origin-data-leakage) for details.
-
-**`default`** "anonymous"
 
 ---
 
 ### `Optional` selectors
 
-• **selectors**? : _string[]_
+Type: _Array[string]_ <br/>
+**`default`** ["script","link[rel=stylesheet]"]
 
-_Defined in [index.ts:18](https://github.com/JonasKruckenberg/rollup-plugin-sri/blob/bdf0f48/index.ts#L18)_
-
-A list of strings you can provide that the plugin will use to match.
-it will then try to compute an integrity attribute for the matched tag.
+A list of strings you can provide that the plugin will use to match html tags with.
+It will then try to compute an integrity attribute for the matched tag.
 Currently it only matches script tags and link with rel=stylesheet as per specification.
 see [the W3C spec](https://www.w3.org/TR/SRI/#elements) for more information.
 The selector syntax is the same as jQuery's.
-
-**`default`** ["script","link[rel=stylesheet]"]
 
 ## Contributing
 
