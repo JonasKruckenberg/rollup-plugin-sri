@@ -1,7 +1,6 @@
 import cheerio from 'cheerio'
 import { createHash } from 'crypto'
 import { OutputAsset } from 'rollup'
-import { debuglog } from 'util'
 import fetch from 'node-fetch'
 import { join, basename } from 'path'
 import fs from 'fs-extra'
@@ -50,7 +49,7 @@ export default (options?: PluginOptions) => {
   const active = options?.active ?? true
 
   return {
-    name: 'plugin-sri',
+    name: 'subresource-integrity',
 
     async writeBundle(options, bundle) {
       if (!active) return

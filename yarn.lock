@@ -324,13 +324,6 @@
     js-yaml "^3.13.1"
     resolve-from "^5.0.0"
 
-"@istanbuljs/nyc-config-typescript@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@istanbuljs/nyc-config-typescript/-/nyc-config-typescript-1.0.1.tgz#55172f5663b3635586add21b14d42ca94a163d58"
-  integrity sha512-/gz6LgVpky205LuoOfwEZmnUtaSmdk0QIMcNFj9OvxhiMhPpKftMgZmGN7jNj7jR+lr8IB1Yks3QSSSNSxfoaQ==
-  dependencies:
-    "@istanbuljs/schema" "^0.1.2"
-
 "@istanbuljs/schema@^0.1.2":
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/@istanbuljs/schema/-/schema-0.1.2.tgz#26520bf09abe4a5644cd5414e37125a8954241dd"
@@ -636,11 +629,6 @@
   integrity sha512-OFxUBgrEllAbdEmWp/wNmKIu5EuumKHG4sgy56vjZ8lXPgMhF05c76hmulfOdFHHYRpPj49ygOZJ8wgVsPecuA==
   dependencies:
     "@types/node" ">= 8"
-
-"@rollup/plugin-html@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@rollup/plugin-html/-/plugin-html-0.2.0.tgz#a01068e3e0e089a65f44c1b1988b8acd236f36e9"
-  integrity sha512-aT73feaTUmJIQ45K61+5pL9GE5IYgHi0SvQ+yhQfPG1HoDlPnIjk3af9IA/DxJ+8ZlWDWFcN3pik0VavWF88hw==
 
 "@rollup/pluginutils@^3.0.8":
   version "3.1.0"
