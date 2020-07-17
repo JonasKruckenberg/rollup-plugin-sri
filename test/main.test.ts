@@ -27,12 +27,12 @@ describe('sri-plugin', () => {
 			{ dir: 'test/files' },
 			{
 				'index.html': { source: await fs.readFile('test/files/index.html', 'utf8') },
-				'index.js': { source: await fs.readFile('test/files/index.js', 'utf8') }
+				'index.js': {}
 			}
 		)
 		const $ = cheerio.load(await fs.readFile('test/files/index.html', 'utf8'))
 		expect($('script').attr('integrity')).to.equal(
-			'sha384-gVJYP3TPKX3PCLR1GXQ0jviCrp2g7ROfzaWuss1h2EKzogitr5iI6ittzO8XQGoW'
+			'sha384-xmG3hQa37t6kEKr06OiaPcpeYwUQPXOK3tiyKzoqlzvYb2Ehc6qCel8Z+V0QiKeE'
 		)
 		expect($('script').attr('crossorigin')).to.equal('anonymous')
 	})
@@ -46,7 +46,7 @@ describe('sri-plugin', () => {
 			{ dir: 'test/files' },
 			{
 				'index.html': { source: await fs.readFile('test/files/index.html', 'utf8') },
-				'index.js': { source: await fs.readFile('test/files/index.js', 'utf8') }
+				'index.js': {}
 			}
 		)
 		const $ = cheerio.load(await fs.readFile('test/files/index.html', 'utf8'))
@@ -63,12 +63,12 @@ describe('sri-plugin', () => {
 			{ dir: 'test/files' },
 			{
 				'index.html': { source: await fs.readFile('test/files/index.html', 'utf8') },
-				'index.js': { source: await fs.readFile('test/files/index.js', 'utf8') }
+				'index.js': {}
 			}
 		)
 		const $ = cheerio.load(await fs.readFile('test/files/index.html', 'utf8'))
 		expect($('script').attr('integrity')).to.equal(
-			'sha1-duEpXi3HGYB1Zo1JqeryPw/p40M= sha256-hqDr86sFfPGMOnNyvlpBNV47/UKNfPs7mM77X860PgI= sha384-gVJYP3TPKX3PCLR1GXQ0jviCrp2g7ROfzaWuss1h2EKzogitr5iI6ittzO8XQGoW sha512-ztAxV3MGqoDaPQHO/2SXtwidw+zVz4a7KeoPh0OPhAMYTv6SQmWeV8Pno1uYTHKW4ezfmqiMz+NONl/99+TLrw=='
+			'sha1-B6my0pNn5anBDZ3ujJirm1VGgPs= sha256-SojU/IOdT+mEkVVsrIdXHc2+9JVg5VpB90Zl1VlPO2Y= sha384-xmG3hQa37t6kEKr06OiaPcpeYwUQPXOK3tiyKzoqlzvYb2Ehc6qCel8Z+V0QiKeE sha512-cLUmp3OGI/4XtGVOtO3k8rwpmMfltKX7DR9qqAHLwAcnRSUFrAQdbCKunaqfYQlgGA/YtB/ZPegsb6m1thcS4A=='
 		)
 		expect($('script').attr('crossorigin')).to.equal('anonymous')
 	})
@@ -80,7 +80,7 @@ describe('sri-plugin', () => {
 			{ dir: 'test/files' },
 			{
 				'index.html': { source: await fs.readFile('test/files/index2.html', 'utf8') },
-				'index.js': { source: await fs.readFile('test/files/index.js', 'utf8') }
+				'index.js': {}
 			}
 		)
 		const $ = cheerio.load(await fs.readFile('test/files/index.html', 'utf8'))
@@ -99,12 +99,12 @@ describe('sri-plugin', () => {
 			{ dir: 'test/files' },
 			{
 				'index.html': { source: await fs.readFile('test/files/index.html', 'utf8') },
-				'index.js': { source: await fs.readFile('test/files/index.js', 'utf8') }
+				'index.js': {}
 			}
 		)
 		const $ = cheerio.load(await fs.readFile('test/files/index.html', 'utf8'))
 		expect($('script').attr('integrity')).to.equal(
-			'sha384-gVJYP3TPKX3PCLR1GXQ0jviCrp2g7ROfzaWuss1h2EKzogitr5iI6ittzO8XQGoW'
+			'sha384-xmG3hQa37t6kEKr06OiaPcpeYwUQPXOK3tiyKzoqlzvYb2Ehc6qCel8Z+V0QiKeE'
 		)
 		expect($('script').attr('crossorigin')).to.equal('use-credentials')
 	})
@@ -116,12 +116,12 @@ describe('sri-plugin', () => {
 			{ dir: 'test/files' },
 			{
 				'index.html': { source: await fs.readFile('test/files/index3.html', 'utf8') },
-				'index.js': { source: await fs.readFile('test/files/index.js', 'utf8') }
+				'index.js': {}
 			}
 		)
 		const $ = cheerio.load(await fs.readFile('test/files/index.html', 'utf8'))
 		expect($('link').attr('integrity')).to.equal(
-			'sha384-gVJYP3TPKX3PCLR1GXQ0jviCrp2g7ROfzaWuss1h2EKzogitr5iI6ittzO8XQGoW'
+			'sha384-xmG3hQa37t6kEKr06OiaPcpeYwUQPXOK3tiyKzoqlzvYb2Ehc6qCel8Z+V0QiKeE'
 		)
 		expect($('link').attr('crossorigin')).to.equal('anonymous')
 	})
@@ -133,7 +133,7 @@ describe('sri-plugin', () => {
 			{ dir: 'test/files' },
 			{
 				'index.html': { source: await fs.readFile('test/files/index4.html', 'utf8') },
-				'index.js': { source: await fs.readFile('test/files/index.js', 'utf8') }
+				'index.js': {}
 			}
 		)
 		const $ = cheerio.load(await fs.readFile('test/files/index.html', 'utf8'))
