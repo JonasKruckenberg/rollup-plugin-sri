@@ -64,7 +64,7 @@ export default (options?: PluginOptions) => {
 						let buf: Buffer
 						if (bundle[id]) {
 							buf = await fs.readFile(join(options.dir, id))
-							console.log(buf)
+							console.log(buf.toString())
 						} else if (url.startsWith('http')) {
 							buf = await (await fetch(url)).buffer()
 						} else {
