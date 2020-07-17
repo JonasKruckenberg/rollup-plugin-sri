@@ -1,13 +1,143 @@
 import { expect } from 'chai'
+import cheerio from 'cheerio'
 import sri from '../index'
+import fs from 'fs-extra'
+import { resolve } from 'path'
 
 describe('sri-plugin', () => {
+	beforeEach(async () => {
+		await fs.copy(resolve(__dirname, 'templates'), resolve(__dirname, 'files'))
+	})
+	afterEach(async () => {
+		await fs.remove(resolve(__dirname, 'files'))
+	})
 	it('is a function', () => {
 		expect(sri).to.be.a('function')
 	})
 	it('returns an object', () => {
 		expect(sri()).to.be.an('object')
-		expect(sri()).to.have.property('name').which.equals('rollup-plugin-sri')
-		expect(sri()).to.have.property('generateBundle').which.is.a('function')
+		expect(sri()).to.have.property('name').which.equals('plugin-sri')
+		expect(sri()).to.have.property('writeBundle').which.is.a('function')
+	})
+
+	it('generates integrity and crossorigin attributes', async () => {
+		const plugin = sri()
+
+		await plugin.writeBundle(
+			{ dir: 'test/files' },
+			{
+				'index.html': { source: await fs.readFile('test/files/index.html', 'utf8') },
+				'index.js': { source: await fs.readFile('test/files/index.js', 'utf8') }
+			}
+		)
+		const $ = cheerio.load(await fs.readFile('test/files/index.html', 'utf8'))
+		expect($('script').attr('integrity')).to.equal(
+			'sha384-gVJYP3TPKX3PCLR1GXQ0jviCrp2g7ROfzaWuss1h2EKzogitr5iI6ittzO8XQGoW'
+		)
+		expect($('script').attr('crossorigin')).to.equal('anonymous')
+	})
+
+	it('can be disabled', async () => {
+		const plugin = sri({
+			active: false
+		})
+
+		await plugin.writeBundle(
+			{ dir: 'test/files' },
+			{
+				'index.html': { source: await fs.readFile('test/files/index.html', 'utf8') },
+				'index.js': { source: await fs.readFile('test/files/index.js', 'utf8') }
+			}
+		)
+		const $ = cheerio.load(await fs.readFile('test/files/index.html', 'utf8'))
+		expect($('script').attr('integrity')).to.be.undefined
+		expect($('script').attr('crossorigin')).to.be.undefined
+	})
+
+	it('takes multiple hashing algorithms', async () => {
+		const plugin = sri({
+			algorithms: ['sha1', 'sha256', 'sha384', 'sha512']
+		})
+
+		await plugin.writeBundle(
+			{ dir: 'test/files' },
+			{
+				'index.html': { source: await fs.readFile('test/files/index.html', 'utf8') },
+				'index.js': { source: await fs.readFile('test/files/index.js', 'utf8') }
+			}
+		)
+		const $ = cheerio.load(await fs.readFile('test/files/index.html', 'utf8'))
+		expect($('script').attr('integrity')).to.equal(
+			'sha1-duEpXi3HGYB1Zo1JqeryPw/p40M= sha256-hqDr86sFfPGMOnNyvlpBNV47/UKNfPs7mM77X860PgI= sha384-gVJYP3TPKX3PCLR1GXQ0jviCrp2g7ROfzaWuss1h2EKzogitr5iI6ittzO8XQGoW sha512-ztAxV3MGqoDaPQHO/2SXtwidw+zVz4a7KeoPh0OPhAMYTv6SQmWeV8Pno1uYTHKW4ezfmqiMz+NONl/99+TLrw=='
+		)
+		expect($('script').attr('crossorigin')).to.equal('anonymous')
+	})
+
+	it('fetches resource when external', async () => {
+		const plugin = sri()
+
+		await plugin.writeBundle(
+			{ dir: 'test/files' },
+			{
+				'index.html': { source: await fs.readFile('test/files/index2.html', 'utf8') },
+				'index.js': { source: await fs.readFile('test/files/index.js', 'utf8') }
+			}
+		)
+		const $ = cheerio.load(await fs.readFile('test/files/index.html', 'utf8'))
+		expect($('link').attr('integrity')).to.equal(
+			'sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk'
+		)
+		expect($('link').attr('crossorigin')).to.equal('anonymous')
+	})
+
+	it('can change the crossorigin attribute', async () => {
+		const plugin = sri({
+			crossorigin: 'use-credentials'
+		})
+
+		await plugin.writeBundle(
+			{ dir: 'test/files' },
+			{
+				'index.html': { source: await fs.readFile('test/files/index.html', 'utf8') },
+				'index.js': { source: await fs.readFile('test/files/index.js', 'utf8') }
+			}
+		)
+		const $ = cheerio.load(await fs.readFile('test/files/index.html', 'utf8'))
+		expect($('script').attr('integrity')).to.equal(
+			'sha384-gVJYP3TPKX3PCLR1GXQ0jviCrp2g7ROfzaWuss1h2EKzogitr5iI6ittzO8XQGoW'
+		)
+		expect($('script').attr('crossorigin')).to.equal('use-credentials')
+	})
+
+	it('can handle link rel="stylesheet" tags as well', async () => {
+		const plugin = sri()
+
+		await plugin.writeBundle(
+			{ dir: 'test/files' },
+			{
+				'index.html': { source: await fs.readFile('test/files/index3.html', 'utf8') },
+				'index.js': { source: await fs.readFile('test/files/index.js', 'utf8') }
+			}
+		)
+		const $ = cheerio.load(await fs.readFile('test/files/index.html', 'utf8'))
+		expect($('link').attr('integrity')).to.equal(
+			'sha384-gVJYP3TPKX3PCLR1GXQ0jviCrp2g7ROfzaWuss1h2EKzogitr5iI6ittzO8XQGoW'
+		)
+		expect($('link').attr('crossorigin')).to.equal('anonymous')
+	})
+
+	it('ignores non rel="stylesheet" link tags', async () => {
+		const plugin = sri()
+
+		await plugin.writeBundle(
+			{ dir: 'test/files' },
+			{
+				'index.html': { source: await fs.readFile('test/files/index4.html', 'utf8') },
+				'index.js': { source: await fs.readFile('test/files/index.js', 'utf8') }
+			}
+		)
+		const $ = cheerio.load(await fs.readFile('test/files/index.html', 'utf8'))
+		expect($('link').attr('integrity')).to.be.undefined
+		expect($('link').attr('crossorigin')).to.be.undefined
 	})
 })
