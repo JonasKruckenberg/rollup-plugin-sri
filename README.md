@@ -5,7 +5,7 @@
 
 ## Usage
 
-Just import this plugin together with another plugin that outputs a html file, like [@rollup/plugin-html](https://github.com/rollup/plugins/tree/master/packages/html). <br />
+Just use this plugin together with another plugin that outputs an html file, like [@rollup/plugin-html](https://github.com/rollup/plugins/tree/master/packages/html). <br />
 It will then generate `integrity` and `crossorigin` attributes for all script tags and all link rel="stylesheet" tags.
 
 ```js
