@@ -5,6 +5,7 @@ import { OutputBundle, OutputOptions, OutputChunk, OutputAsset } from 'rollup'
 import { debuglog } from 'util'
 
 const debug = debuglog('rollup-plugin-sri')
+import fetch from 'node-fetch'
 
 interface PluginOptions {
 	/**
@@ -64,13 +65,18 @@ export default (options?: PluginOptions) => {
 				chunk = chunk as OutputAsset
 				if (chunk.fileName.endsWith('html')) {
 					const $ = cheerio.load(chunk.source.toString())
-					$(selectors.join()).each((index, el) => {
-						const id = basename(el.attribs.href || el.attribs.src)
-						if (!id) return
-						// @ts-ignore for now because code is not in type asset and source is not in type chunks
-						const source = bundle[id]?.code || bundle[id]?.source
-						if (!source) {
-							return this.warn(`could not find source code for file ${source}`)
+					const elements = $(selectors.join()).get()
+					for (const el of elements) {
+						const url = $(el).attr('href') || $(el).attr('src') || ''
+						const id = basename(url)
+
+						let buf: Buffer
+						if (bundle[id]) {
+							buf = await fs.readFile(join(options.dir, id))
+						} else if (url.startsWith('http')) {
+							buf = await (await fetch(url)).buffer()
+						} else {
+							return this.warn(`could not get content of file ${url}`)
 						}
 						const hashes = hashAlgorithms.map((algorithm) => generateIdentity(source, algorithm))
 						el.attribs.integrity = hashes.join(' ')
