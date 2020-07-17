@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/JonasKruckenberg/rollup-plugin-sri/compare/v1.2.0...v1.2.1) (2020-07-17)
+
+
+### Bug Fixes
+
+* Use fs-extra instead of fs ([302f1eb](https://github.com/JonasKruckenberg/rollup-plugin-sri/commit/302f1ebbe29c353645f2b387d2f73b65792311ff))
+
 # [1.2.0](https://github.com/JonasKruckenberg/rollup-plugin-sri/compare/v1.1.1...v1.2.0) (2020-07-17)
 
 
