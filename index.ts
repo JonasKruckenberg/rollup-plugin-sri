@@ -58,7 +58,8 @@ export default (options?: PluginOptions) => {
 					const $ = cheerio.load(chunk.source.toString())
 					const elements = $(selectors.join()).get()
 					for (const el of elements) {
-						const url = $(el).attr('href') || $(el).attr('src') || ''
+						const url = $(el).attr('href') || $(el).attr('src')
+						if (!url) return
 						const id = basename(url)
 
 						let buf: Buffer
@@ -67,7 +68,7 @@ export default (options?: PluginOptions) => {
 						} else if (url.startsWith('http')) {
 							buf = await (await fetch(url)).buffer()
 						} else {
-							return this.warn(`could not get content of file ${url}`)
+							return
 						}
 
 						const hashes = hashAlgorithms.map((algorithm) => generateIdentity(buf, algorithm))
