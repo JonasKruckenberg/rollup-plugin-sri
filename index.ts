@@ -4,7 +4,7 @@ import { OutputAsset } from 'rollup'
 import { debuglog } from 'util'
 import fetch from 'node-fetch'
 import { join, basename } from 'path'
-import fs from 'fs/promises'
+import fs from 'fs-extra'
 
 interface PluginOptions {
 	/**

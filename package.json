@@ -33,10 +33,10 @@
 	},
 	"dependencies": {
 		"cheerio": "^1.0.0-rc.3",
+		"fs-extra": "^9.0.1",
 		"node-fetch": "^2.6.0"
 	},
 	"devDependencies": {
-		"fs-extra": "^9.0.1",
 		"@rollup/plugin-html": "^0.2.0",
 		"@semantic-release/changelog": "^5.0.1",
 		"@semantic-release/commit-analyzer": "^8.0.1",
