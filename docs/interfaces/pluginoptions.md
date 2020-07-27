@@ -21,7 +21,7 @@
 
 • **active**? : *undefined | false | true*
 
-*Defined in [index.ts:43](https://github.com/JonasKruckenberg/rollup-plugin-sri/blob/4f07722/index.ts#L43)*
+*Defined in [index.ts:42](https://github.com/JonasKruckenberg/rollup-plugin-sri/blob/e7d7745/index.ts#L42)*
 
 Can be used to disable the plugin, for example when used together with hot-module-reloading.
 
@@ -33,7 +33,7 @@ ___
 
 • **algorithms**? : *string[]*
 
-*Defined in [index.ts:29](https://github.com/JonasKruckenberg/rollup-plugin-sri/blob/4f07722/index.ts#L29)*
+*Defined in [index.ts:28](https://github.com/JonasKruckenberg/rollup-plugin-sri/blob/e7d7745/index.ts#L28)*
 
 A list of hashing algorithms to use when computing the integrity attribute.
 The hashing algorithm has to be supported by the nodejs version you're running on and by the Browser you're targeting.
@@ -51,7 +51,7 @@ ___
 
 • **crossorigin**? : *"anonymous" | "use-credentials"*
 
-*Defined in [index.ts:37](https://github.com/JonasKruckenberg/rollup-plugin-sri/blob/4f07722/index.ts#L37)*
+*Defined in [index.ts:36](https://github.com/JonasKruckenberg/rollup-plugin-sri/blob/e7d7745/index.ts#L36)*
 
 Specifies the value for the crossorigin attribute.
 This attribute has to be set on the generated html tags to prevent cross-origin data leakage.
@@ -66,7 +66,7 @@ ___
 
 • **selectors**? : *string[]*
 
-*Defined in [index.ts:18](https://github.com/JonasKruckenberg/rollup-plugin-sri/blob/4f07722/index.ts#L18)*
+*Defined in [index.ts:17](https://github.com/JonasKruckenberg/rollup-plugin-sri/blob/e7d7745/index.ts#L17)*
 
 A list of strings you can provide that the plugin will use to match html tags with.
 It will then try to compute an integrity attribute for the matched tag.

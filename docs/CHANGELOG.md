@@ -1,3 +1,5 @@
+## [1.2.6](https://github.com/JonasKruckenberg/rollup-plugin-sri/compare/v1.2.5...v1.2.6) (2020-07-27)
+
 ## [1.2.5](https://github.com/JonasKruckenberg/rollup-plugin-sri/compare/v1.2.4...v1.2.5) (2020-07-17)
 
 ## [1.2.4](https://github.com/JonasKruckenberg/rollup-plugin-sri/compare/v1.2.3...v1.2.4) (2020-07-17)

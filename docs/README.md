@@ -18,7 +18,7 @@
 
 ▸ **generateIdentity**(`source`: Buffer, `alg`: string): *string*
 
-*Defined in [index.ts:88](https://github.com/JonasKruckenberg/rollup-plugin-sri/blob/4f07722/index.ts#L88)*
+*Defined in [index.ts:87](https://github.com/JonasKruckenberg/rollup-plugin-sri/blob/e7d7745/index.ts#L87)*
 
 **Parameters:**
 
