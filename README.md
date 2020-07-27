@@ -1,6 +1,7 @@
 # rollup-plugin-sri
 
 > Because web security should not be difficult.
+> [![Codecov Coverage](https://img.shields.io/codecov/c/github/JonasKruckenberg/rollup-plugin-sri/master.svg?style=flat-square)](https://codecov.io/gh/JonasKruckenberg/rollup-plugin-sri/)
 
 This plugin adds [subresource integrity](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity) attributes to all resources imported by your html files.
 
