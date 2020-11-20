@@ -6556,9 +6556,9 @@ saxes@^5.0.0:
     xmlchars "^2.2.0"
 
 semantic-release@^17.0.7:
-  version "17.1.1"
-  resolved "https://registry.yarnpkg.com/semantic-release/-/semantic-release-17.1.1.tgz#d9775968e841b2b7c5020559e4481aea8520ca75"
-  integrity sha512-9H+207eynBJElrQBHySZm+sIEoJeUhPA2zU4cdlY1QSInd2lnE8GRD2ALry9EassE22c9WW+aCREwBhro5AIIg==
+  version "17.2.4"
+  resolved "https://registry.yarnpkg.com/semantic-release/-/semantic-release-17.2.4.tgz#b1e18644a5be51a4ee681172fc3c3bb05fe0322a"
+  integrity sha512-NcYFT+duzg+eE57s9lZYRRkxzyiXGvwFdPvS4U+8TYo+vb0UZpQuFi63hFgoLAOF4lo5yj2v79GsG9hDC66EQw==
   dependencies:
     "@semantic-release/commit-analyzer" "^8.0.0"
     "@semantic-release/error" "^2.2.0"
