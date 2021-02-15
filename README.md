@@ -92,12 +92,6 @@ export default {
 
 This config will generate an output like this:
 
-> There are a few things to note though:
->
-> 1. You can in theory use any hashing algorithm you want, however most browser only support the sha family of hashing algorithms like sha256, sha384 and sha512
-> 2. Browser vendors are actively discouraged from using `md5` and `sha1` as they are not considered to be secure enough.
->    Most modern browser won't accept them at all.
-
 ```html
 <script
   src="index.js"
@@ -105,6 +99,12 @@ This config will generate an output like this:
   crossorigin="anonymous"
 ></script>
 ```
+
+> There are a few things to note though:
+>
+> 1. You can in theory use any hashing algorithm you want, however most browser only support the sha family of hashing algorithms like sha256, sha384 and sha512
+> 2. Browser vendors are actively discouraged from using `md5` and `sha1` as they are not considered to be secure enough.
+>    Most modern browser won't accept them at all.
 
 ## Options
 
