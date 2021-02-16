@@ -863,9 +863,9 @@
   integrity sha512-EYNwp3bU+98cpU4lAWYYL7Zz+2gryWH1qbdDTidVd6hkiR6weksdbMadyXKXNPEkQFhXM+hVO9ZygomHXp+AIw==
 
 "@types/fs-extra@^9.0.1":
-  version "9.0.1"
-  resolved "https://registry.yarnpkg.com/@types/fs-extra/-/fs-extra-9.0.1.tgz#91c8fc4c51f6d5dbe44c2ca9ab09310bd00c7918"
-  integrity sha512-B42Sxuaz09MhC3DDeW5kubRcQ5by4iuVQ0cRRWM2lggLzAa/KVom0Aft/208NgMvNQQZ86s5rVcqDdn/SH0/mg==
+  version "9.0.7"
+  resolved "https://registry.yarnpkg.com/@types/fs-extra/-/fs-extra-9.0.7.tgz#a9ef2ffdab043def080c5bec94c03402f793577f"
+  integrity sha512-YGq2A6Yc3bldrLUlm17VNWOnUbnEzJ9CMgOeLFtQF3HOCN5lQBO8VyjG00a5acA5NNSM30kHVGp1trZgnVgi1Q==
   dependencies:
     "@types/node" "*"
 
@@ -7555,9 +7555,9 @@ typedoc@^0.20.25:
     typedoc-default-themes "^0.12.7"
 
 typescript@^4.0.3:
-  version "4.0.7"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.0.7.tgz#7168032c43d2a2671c95c07812f69523c79590af"
-  integrity sha512-yi7M4y74SWvYbnazbn8/bmJmX4Zlej39ZOqwG/8dut/MYoSQ119GY9ZFbbGsD4PFZYWxqik/XsP3vk3+W5H3og==
+  version "4.1.5"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.1.5.tgz#123a3b214aaff3be32926f0d8f1f6e704eb89a72"
+  integrity sha512-6OSu9PTIzmn9TCDiovULTnET6BgXtDYL4Gg4szY+cGsc3JP1dQL8qvE8kShTRx1NIw4Q9IBHlwODjkjWEtMUyA==
 
 uglify-js@^3.1.4:
   version "3.10.0"
