@@ -1,30 +1,29 @@
-[rollup-plugin-sri](README.md)
+rollup-plugin-sri
 
 # rollup-plugin-sri
 
-## Index
+## Table of contents
 
-### Interfaces
+### Properties
 
-* [PluginOptions](interfaces/pluginoptions.md)
+- [default](README.md#default)
 
-### Functions
+## Properties
 
-* [generateIdentity](README.md#generateidentity)
+### default
 
-## Functions
+• **default**: (`options?`: PluginOptions) => *Plugin*
 
-###  generateIdentity
+#### Type declaration:
 
-▸ **generateIdentity**(`source`: Buffer, `alg`: string): *string*
+▸ (`options?`: PluginOptions): *Plugin*
 
-*Defined in [index.ts:87](https://github.com/JonasKruckenberg/rollup-plugin-sri/blob/b988418/index.ts#L87)*
-
-**Parameters:**
+#### Parameters:
 
 Name | Type |
------- | ------ |
-`source` | Buffer |
-`alg` | string |
+:------ | :------ |
+`options?` | PluginOptions |
 
-**Returns:** *string*
+**Returns:** *Plugin*
+
+Defined in: [index.ts:43](https://github.com/JonasKruckenberg/rollup-plugin-sri/blob/a8d4206/index.ts#L43)

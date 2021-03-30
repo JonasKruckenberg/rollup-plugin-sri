@@ -1,3 +1,10 @@
+## [1.2.8](https://github.com/JonasKruckenberg/rollup-plugin-sri/compare/v1.2.7...v1.2.8) (2021-03-30)
+
+
+### Bug Fixes
+
+* correctly resolve local paths ([9cecfb7](https://github.com/JonasKruckenberg/rollup-plugin-sri/commit/9cecfb7f5e750a6417f76c13923ebba071ec8c67)), closes [#99](https://github.com/JonasKruckenberg/rollup-plugin-sri/issues/99)
+
 ## [1.2.7](https://github.com/JonasKruckenberg/rollup-plugin-sri/compare/v1.2.6...v1.2.7) (2020-08-31)
 
 

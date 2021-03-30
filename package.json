@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-sri",
-  "version": "1.2.7",
+  "version": "1.2.8",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
