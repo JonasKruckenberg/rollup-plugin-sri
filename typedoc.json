@@ -1,10 +1,8 @@
 {
-	"mode": "file",
 	"out": "docs",
-	"stripInternal": true,
+	"excludeInternal": true,
 	"readme": "none",
-	"inputFiles": ["index.ts"],
+	"entryPoints": ["index.ts"],
 	"hideGenerator": true,
-  "target": "ES6",
-  "disableOutputCheck": true
+	"disableOutputCheck": true
 }
