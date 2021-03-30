@@ -1,6 +1,6 @@
 import cheerio from 'cheerio'
 import { createHash } from 'crypto'
-import { OutputAsset } from 'rollup'
+import { OutputAsset, OutputChunk, Plugin } from 'rollup'
 import fetch from 'node-fetch'
 import { join, basename } from 'path'
 import fs from 'fs-extra'
@@ -42,7 +42,7 @@ interface PluginOptions {
   active?: boolean
 }
 
-export default (options?: PluginOptions) => {
+export default (options?: PluginOptions): Plugin => {
   const selectors = options?.selectors || ['script', 'link[rel=stylesheet]']
   const hashAlgorithms = options?.algorithms || ['sha384']
   const crossorigin = options?.crossorigin || 'anonymous'
@@ -54,8 +54,9 @@ export default (options?: PluginOptions) => {
     async writeBundle(options, bundle) {
       if (!active) return
       for (const name in bundle) {
-        if (name.endsWith('html')) {
-          const chunk = bundle[name] as OutputAsset
+        const chunk = bundle[name] 
+
+        if (isHtmlAsset(chunk)) {
           const $ = cheerio.load(chunk.source.toString())
           const elements = $(selectors.join()).get()
           for (const el of elements) {
@@ -87,4 +88,8 @@ export default (options?: PluginOptions) => {
 function generateIdentity(source: Buffer, alg: string) {
   const hash = createHash(alg).update(source).digest().toString('base64')
   return `${alg}-${hash}`
+}
+
+function isHtmlAsset(obj: OutputAsset | OutputChunk): obj is OutputAsset {
+  return obj.fileName.endsWith('.html') && obj.type === 'asset'
 }
