@@ -2,7 +2,7 @@ import cheerio from 'cheerio'
 import { createHash } from 'crypto'
 import { OutputAsset, OutputChunk, Plugin } from 'rollup'
 import fetch from 'node-fetch'
-import { join, basename } from 'path'
+import { join, dirname } from 'path'
 import fs from 'fs-extra'
 
 interface PluginOptions {
@@ -50,27 +50,26 @@ export default (options?: PluginOptions): Plugin => {
 
   return {
     name: 'subresource-integrity',
-
     async writeBundle(options, bundle) {
       if (!active) return
+      const dir = options.dir || dirname(options.file || '')
+
       for (const name in bundle) {
         const chunk = bundle[name] 
 
         if (isHtmlAsset(chunk)) {
           const $ = cheerio.load(chunk.source.toString())
           const elements = $(selectors.join()).get()
+
           for (const el of elements) {
             const url = $(el).attr('href') || $(el).attr('src')
-            if (!url) return
-            const id = basename(url)
-
+            if (!url) return            
+            
             let buf: Buffer
-            if (bundle[id]) {
-              buf = await fs.readFile(join(options.dir, id))
-            } else if (url.startsWith('http')) {
+            if (url.startsWith('http:')) {
               buf = await (await fetch(url)).buffer()
             } else {
-              return
+              buf = await fs.readFile(join(dir || '', url))
             }
 
             const hashes = hashAlgorithms.map((algorithm) => generateIdentity(buf, algorithm))
@@ -78,7 +77,8 @@ export default (options?: PluginOptions): Plugin => {
             $(el).attr('integrity', hashes.join(' '))
             $(el).attr('crossorigin', crossorigin)
           }
-          await fs.writeFile(join(options.dir, name), $.html())
+
+          await fs.writeFile(join(dir || '', name), $.html())
         }
       }
     }
