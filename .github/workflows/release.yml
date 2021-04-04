@@ -18,6 +18,8 @@ jobs:
           node-version: '14.x'
       - name: Installing dependencies
         run: yarn
+      - name: Unit tests
+        run: yarn test
       - name: Building
         run: yarn build
       - name: Generate Docs
