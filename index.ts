@@ -1,9 +1,9 @@
 import cheerio from 'cheerio'
-import { createHash, HashOptions } from 'crypto'
+import { createHash } from 'crypto'
 import { OutputAsset, OutputChunk, Plugin } from 'rollup'
 import fetch from 'node-fetch'
 
-interface PluginOptions {
+export interface PluginOptions {
   /**
    * A list of strings you can provide that the plugin will use to match html tags with.
    * It will then try to compute an integrity attribute for the matched tag.
