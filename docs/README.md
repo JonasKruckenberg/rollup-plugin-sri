@@ -4,6 +4,10 @@ rollup-plugin-sri
 
 ## Table of contents
 
+### Interfaces
+
+- [PluginOptions](interfaces/pluginoptions.md)
+
 ### Properties
 
 - [default](README.md#default)
@@ -12,18 +16,18 @@ rollup-plugin-sri
 
 ### default
 
-• **default**: (`options?`: PluginOptions) => *Plugin*
+• **default**: (`options?`: [*PluginOptions*](interfaces/pluginoptions.md)) => *Plugin*
 
 #### Type declaration:
 
-▸ (`options?`: PluginOptions): *Plugin*
+▸ (`options?`: [*PluginOptions*](interfaces/pluginoptions.md)): *Plugin*
 
 #### Parameters:
 
 Name | Type |
 :------ | :------ |
-`options?` | PluginOptions |
+`options?` | [*PluginOptions*](interfaces/pluginoptions.md) |
 
 **Returns:** *Plugin*
 
-Defined in: [index.ts:43](https://github.com/JonasKruckenberg/rollup-plugin-sri/blob/a8d4206/index.ts#L43)
+Defined in: [index.ts:50](https://github.com/JonasKruckenberg/rollup-plugin-sri/blob/467e3ca/index.ts#L50)

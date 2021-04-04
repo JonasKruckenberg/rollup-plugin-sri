@@ -1,39 +1,34 @@
-[rollup-plugin-sri](../README.md) › [PluginOptions](pluginoptions.md)
+[rollup-plugin-sri](../README.md) / PluginOptions
 
 # Interface: PluginOptions
 
-## Hierarchy
-
-* **PluginOptions**
-
-## Index
+## Table of contents
 
 ### Properties
 
-* [active](pluginoptions.md#optional-active)
-* [algorithms](pluginoptions.md#optional-algorithms)
-* [crossorigin](pluginoptions.md#optional-crossorigin)
-* [selectors](pluginoptions.md#optional-selectors)
+- [active](pluginoptions.md#active)
+- [algorithms](pluginoptions.md#algorithms)
+- [crossorigin](pluginoptions.md#crossorigin)
+- [publicPath](pluginoptions.md#publicpath)
+- [selectors](pluginoptions.md#selectors)
 
 ## Properties
 
-### `Optional` active
+### active
 
-• **active**? : *undefined | false | true*
-
-*Defined in [index.ts:42](https://github.com/JonasKruckenberg/rollup-plugin-sri/blob/b988418/index.ts#L42)*
+• `Optional` **active**: *boolean*
 
 Can be used to disable the plugin, for example when used together with hot-module-reloading.
 
 **`default`** true
 
+Defined in: [index.ts:40](https://github.com/JonasKruckenberg/rollup-plugin-sri/blob/467e3ca/index.ts#L40)
+
 ___
 
-### `Optional` algorithms
+### algorithms
 
-• **algorithms**? : *string[]*
-
-*Defined in [index.ts:28](https://github.com/JonasKruckenberg/rollup-plugin-sri/blob/b988418/index.ts#L28)*
+• `Optional` **algorithms**: *string*[] \| *sha256*[] \| *sha384*[] \| *sha512*[]
 
 A list of hashing algorithms to use when computing the integrity attribute.
 The hashing algorithm has to be supported by the nodejs version you're running on and by the Browser you're targeting.
@@ -45,13 +40,13 @@ Standard hash functions as defined in the [subresource integrity specification](
 
 **`default`** ["sha384"]
 
+Defined in: [index.ts:26](https://github.com/JonasKruckenberg/rollup-plugin-sri/blob/467e3ca/index.ts#L26)
+
 ___
 
-### `Optional` crossorigin
+### crossorigin
 
-• **crossorigin**? : *"anonymous" | "use-credentials"*
-
-*Defined in [index.ts:36](https://github.com/JonasKruckenberg/rollup-plugin-sri/blob/b988418/index.ts#L36)*
+• `Optional` **crossorigin**: *anonymous* \| *use-credentials*
 
 Specifies the value for the crossorigin attribute.
 This attribute has to be set on the generated html tags to prevent cross-origin data leakage.
@@ -60,13 +55,26 @@ see: [the W3C spec](https://www.w3.org/TR/SRI/#cross-origin-data-leakage) for de
 
 **`default`** "anonymous"
 
+Defined in: [index.ts:34](https://github.com/JonasKruckenberg/rollup-plugin-sri/blob/467e3ca/index.ts#L34)
+
 ___
 
-### `Optional` selectors
+### publicPath
 
-• **selectors**? : *string[]*
+• `Optional` **publicPath**: *string*
 
-*Defined in [index.ts:17](https://github.com/JonasKruckenberg/rollup-plugin-sri/blob/b988418/index.ts#L17)*
+Commonly assets will be prefixed with a public path, such as "/" or "/assets".
+Setting this option to the public path allows plugin-sri to resolve those imports.
+
+**`default`** ""
+
+Defined in: [index.ts:47](https://github.com/JonasKruckenberg/rollup-plugin-sri/blob/467e3ca/index.ts#L47)
+
+___
+
+### selectors
+
+• `Optional` **selectors**: *string*[]
 
 A list of strings you can provide that the plugin will use to match html tags with.
 It will then try to compute an integrity attribute for the matched tag.
@@ -75,3 +83,5 @@ see [the W3C spec](https://www.w3.org/TR/SRI/#elements) for more information.
 The selector syntax is the same as jQuery's.
 
 **`default`** ["script","link[rel=stylesheet]"]
+
+Defined in: [index.ts:15](https://github.com/JonasKruckenberg/rollup-plugin-sri/blob/467e3ca/index.ts#L15)
