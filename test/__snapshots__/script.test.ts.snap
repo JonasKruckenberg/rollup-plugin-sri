@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`script basic 1`] = `
+Object {
+  "fileName": "index.html",
+  "source": "<!DOCTYPE html><html lang=\\"en\\"><head></head><body>
+              <script src=\\"1.js\\" integrity=\\"sha384-hxLOTPNeroviduGwj6Po7ksKHF0YRfwVZGjcsAnyJGlTHnQFW/268mrNS7EhSMvT\\" crossorigin=\\"anonymous\\"></script>
+          
+        </body></html>",
+}
+`;
+
+exports[`script crossorigin attribute 1`] = `
+Object {
+  "fileName": "index.html",
+  "source": "<!DOCTYPE html><html lang=\\"en\\"><head></head><body>
+              <script src=\\"1.js\\" integrity=\\"sha384-hxLOTPNeroviduGwj6Po7ksKHF0YRfwVZGjcsAnyJGlTHnQFW/268mrNS7EhSMvT\\" crossorigin=\\"use-credentials\\"></script>
+          
+        </body></html>",
+}
+`;
+
+exports[`script invalid hash algorithm 1`] = `
+Object {
+  "fileName": "index.html",
+  "source": "<!DOCTYPE html><html lang=\\"en\\"><head></head><body>
+              <script src=\\"1.js\\" integrity=\\"sha1-WLJ8+6KFXHup1DH0hA2yfQhSqvM=\\" crossorigin=\\"anonymous\\"></script>
+          
+        </body></html>",
+}
+`;
+
+exports[`script invalid link 1`] = `
+Object {
+  "fileName": "index.html",
+  "source": "<!DOCTYPE html><html lang=\\"en\\"><head></head><body>
+              <script src=\\"invalid.js\\"></script>
+          
+        </body></html>",
+}
+`;
+
+exports[`script multiple hash algorithms 1`] = `
+Object {
+  "fileName": "index.html",
+  "source": "<!DOCTYPE html><html lang=\\"en\\"><head></head><body>
+              <script src=\\"1.js\\" integrity=\\"sha256-4Wu1uCLo1qUmpY7BjzSoj9gZnYvMLQsg0tFS3ZEUiT4= sha384-hxLOTPNeroviduGwj6Po7ksKHF0YRfwVZGjcsAnyJGlTHnQFW/268mrNS7EhSMvT sha512-QZarufP+9NF0jA1Grhr2cRmLGcceCda8LW2RRHfn3N8P/pxEo+yovxc/RhBJ1Vfuo85A7KP/AZe9monwbbR1TA== whirlpool-s8ZeDZB31uI9Rpj8gH/ivY03VM1eLI3ZgBJzC/030190Z9bi8ixzCYTdKHQPM1Yu7xcKSlIIOYlu594qc0C20g==\\" crossorigin=\\"anonymous\\"></script>
+          
+        </body></html>",
+}
+`;
+
+exports[`script remote 1`] = `
+Object {
+  "fileName": "index.html",
+  "source": "<!DOCTYPE html><html lang=\\"en\\"><head></head><body>
+              <script src=\\"https://raw.githubusercontent.com/JonasKruckenberg/rollup-plugin-sri/master/test/fixtures/1.js\\"></script>
+          
+        </body></html>",
+}
+`;
+
+exports[`script uppercase hash algorithms 1`] = `
+Object {
+  "fileName": "index.html",
+  "source": "<!DOCTYPE html><html lang=\\"en\\"><head></head><body>
+              <script src=\\"1.js\\" integrity=\\"sha256-4Wu1uCLo1qUmpY7BjzSoj9gZnYvMLQsg0tFS3ZEUiT4= sha384-hxLOTPNeroviduGwj6Po7ksKHF0YRfwVZGjcsAnyJGlTHnQFW/268mrNS7EhSMvT sha512-QZarufP+9NF0jA1Grhr2cRmLGcceCda8LW2RRHfn3N8P/pxEo+yovxc/RhBJ1Vfuo85A7KP/AZe9monwbbR1TA==\\" crossorigin=\\"anonymous\\"></script>
+          
+        </body></html>",
+}
+`;

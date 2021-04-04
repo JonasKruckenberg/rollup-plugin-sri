@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`@rollup/plugin-html basic 1`] = `
+Object {
+  "fileName": "index.html",
+  "source": "<!DOCTYPE html><html lang=\\"en\\"><head>
+    <meta charset=\\"utf-8\\">
+    <title>Rollup Bundle</title>
+    
+  </head>
+  <body>
+    <script src=\\"1.js\\" type=\\"module\\" integrity=\\"sha384-hxLOTPNeroviduGwj6Po7ksKHF0YRfwVZGjcsAnyJGlTHnQFW/268mrNS7EhSMvT\\" crossorigin=\\"anonymous\\"></script>
+  
+</body></html>",
+}
+`;
+
+exports[`@rollup/plugin-html public path 1`] = `
+Object {
+  "fileName": "index.html",
+  "source": "<!DOCTYPE html><html lang=\\"en\\"><head>
+    <meta charset=\\"utf-8\\">
+    <title>Rollup Bundle</title>
+    
+  </head>
+  <body>
+    <script src=\\"/assets1.js\\" type=\\"module\\" integrity=\\"sha384-hxLOTPNeroviduGwj6Po7ksKHF0YRfwVZGjcsAnyJGlTHnQFW/268mrNS7EhSMvT\\" crossorigin=\\"anonymous\\"></script>
+  
+</body></html>",
+}
+`;
