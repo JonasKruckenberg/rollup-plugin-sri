@@ -1,8 +1,0 @@
-{
-	"testEnvironment": "node",
-	"testRegex": "test/.*.test.ts$",
-	"moduleFileExtensions": ["js", "ts", "json"],
-	"transform": {
-		"^.+\\.tsx?$": "ts-jest"
-	}
-}
