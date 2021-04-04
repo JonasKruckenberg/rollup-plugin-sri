@@ -76,10 +76,9 @@ export default (options?: PluginOptions): Plugin => {
           const elements = $(selectors.join()).get()
 
           for (const el of elements) {
-            const url = $(el).attr('href') || $(el).attr('src')
-            if (!url) return            
-            
             const url = ($(el).attr('href') || $(el).attr('src'))?.replace(publicPath, '')
+            if (!url) continue
+
             let buf: Buffer
             if (url in bundle) {
               //@ts-ignore
@@ -87,6 +86,8 @@ export default (options?: PluginOptions): Plugin => {
             } else if (url.startsWith('http:')) {
               buf = await (await fetch(url)).buffer()
             } else {
+              this.warn(`could not resolve resource "${url}"!`)
+              continue
             }
 
             const hashes = hashAlgorithms.map((algorithm) => generateIdentity(buf, algorithm))
