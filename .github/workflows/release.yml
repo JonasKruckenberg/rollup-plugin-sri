@@ -22,8 +22,6 @@ jobs:
         run: yarn test
       - name: Building
         run: yarn build
-      - name: Generate Docs
-        run: yarn docs
       - name: Release
         run: |
           npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
