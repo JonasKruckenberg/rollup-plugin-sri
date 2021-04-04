@@ -83,7 +83,7 @@ export default (options?: PluginOptions): Plugin => {
             if (url in bundle) {
               //@ts-ignore
               buf = Buffer.from(bundle[url].code || bundle[url].source)
-            } else if (url.startsWith('http:')) {
+            } else if (url.startsWith('http')) {
               buf = await (await fetch(url)).buffer()
             } else {
               this.warn(`could not resolve resource "${url}"!`)
