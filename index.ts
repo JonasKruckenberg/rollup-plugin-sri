@@ -1,9 +1,7 @@
 import cheerio from 'cheerio'
-import { createHash } from 'crypto'
+import { createHash, HashOptions } from 'crypto'
 import { OutputAsset, OutputChunk, Plugin } from 'rollup'
 import fetch from 'node-fetch'
-import { join, dirname } from 'path'
-import fs from 'fs-extra'
 
 interface PluginOptions {
   /**

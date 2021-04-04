@@ -1,7 +1,7 @@
 import pkg from './package.json'
 import typescript from 'rollup-plugin-typescript2'
 
-const production = process.env.NODE_ENV === 'production'
+const production = process.env.ROLLUP_WATCH !== 'true'
 const banner = `/* ${pkg.name}
 v${pkg.version}
 By ${pkg.author.name} <${pkg.author.email}> (${pkg.author.url})

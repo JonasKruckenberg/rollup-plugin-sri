@@ -24,52 +24,37 @@
     "dist"
   ],
   "scripts": {
-    "dev": "cross-env NODE_ENV=development rollup -cw",
-    "build": "cross-env NODE_ENV=production rollup -c",
-    "test": "cross-env NODE_ENV=development jest --config jest.json",
-    "coverage": "cross-env NODE_ENV=development jest --config jest.json --coverage",
-    "docs": "typedoc --options ./typedoc.json",
-    "commit": "git cz"
+    "dev": "rollup -cw",
+    "build": "rollup -c",
+    "test": "jest",
+    "coverage": "jest --collectCoverage",
+    "docs": "typedoc --options ./typedoc.json"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
-    "fs-extra": "^9.0.1",
     "node-fetch": "^2.6.0"
   },
-  "resolutions": {
-    "conventional-changelog/**/dot-prop": "^5.2.0"
-  },
   "devDependencies": {
-    "@istanbuljs/nyc-config-typescript": "^1.0.1",
+    "@babel/core": "^7.13.14",
+    "@babel/preset-env": "^7.13.12",
+    "@babel/preset-typescript": "^7.13.0",
+    "@rollup/plugin-html": "^0.2.3",
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/commit-analyzer": "^8.0.1",
     "@semantic-release/git": "^9.0.0",
     "@semantic-release/github": "^7.0.7",
     "@semantic-release/npm": "^7.0.5",
     "@semantic-release/release-notes-generator": "^9.0.1",
-    "@types/chai": "^4.2.11",
     "@types/cheerio": "^0.22.18",
-    "@types/fs-extra": "^9.0.1",
     "@types/jest": "^26.0.4",
     "@types/node": "^14.0.3",
     "@types/node-fetch": "^2.5.7",
-    "chai": "^4.2.0",
-    "codecov": "^3.7.2",
-    "commitizen": "^4.1.2",
-    "cross-env": "^7.0.2",
-    "cz-conventional-changelog": "^3.2.0",
     "jest": "^26.1.0",
     "rollup": "^2.44.0",
     "rollup-plugin-typescript2": "^0.29.0",
     "semantic-release": "^17.4.2",
-    "ts-jest": "^26.1.3",
     "typedoc": "^0.20.34",
     "typedoc-plugin-markdown": "^3.6.0",
     "typescript": "^4.0.3"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
   }
 }
