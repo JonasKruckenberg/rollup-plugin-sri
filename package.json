@@ -7,8 +7,7 @@
   "license": "MIT",
   "author": {
     "name": "Jonas Kruckenberg",
-    "email": "iterpre@protonmail.com",
-    "url": "https://jonaskruckenberg.de"
+    "email": "iterpre@protonmail.com"
   },
   "description": "Add subresource integrity tags to all your html files 🔒",
   "keywords": [
@@ -49,6 +48,7 @@
     "@types/jest": "^26.0.4",
     "@types/node": "^14.0.3",
     "@types/node-fetch": "^2.5.7",
+    "codecov": "^3.8.1",
     "jest": "^26.1.0",
     "rollup": "^2.44.0",
     "rollup-plugin-typescript2": "^0.29.0",
