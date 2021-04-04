@@ -25,6 +25,44 @@ describe('script', () => {
     expect(source).toMatchSnapshot()
   })
 
+  test('inactive', async () => {
+    const bundle = await rollup({
+      input: '1.js',
+      plugins: [
+        emitAsset('index.html', `
+        <!DOCTYPE html>
+          <html lang="en">
+          <body>
+              <script src="1.js"></script>
+          </body>
+        </html>`),
+        sri({ active: false })
+      ]
+    })
+
+    const source = await getHtml(bundle)
+    expect(source).toMatchSnapshot()
+  })
+
+  test('no src', async () => {
+    const bundle = await rollup({
+      input: '1.js',
+      plugins: [
+        emitAsset('index.html', `
+        <!DOCTYPE html>
+          <html lang="en">
+          <body>
+              <script></script>
+          </body>
+        </html>`),
+        sri()
+      ]
+    })
+
+    const source = await getHtml(bundle)
+    expect(source).toMatchSnapshot()
+  })
+
   test('remote', async () => {
     const bundle = await rollup({
       input: '1.js',

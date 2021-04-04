@@ -20,6 +20,19 @@ Object {
 }
 `;
 
+exports[`script inactive 1`] = `
+Object {
+  "fileName": "index.html",
+  "source": "
+        <!DOCTYPE html>
+          <html lang=\\"en\\">
+          <body>
+              <script src=\\"1.js\\"></script>
+          </body>
+        </html>",
+}
+`;
+
 exports[`script invalid hash algorithm 1`] = `
 Object {
   "fileName": "index.html",
@@ -50,11 +63,21 @@ Object {
 }
 `;
 
+exports[`script no src 1`] = `
+Object {
+  "fileName": "index.html",
+  "source": "<!DOCTYPE html><html lang=\\"en\\"><head></head><body>
+              <script></script>
+          
+        </body></html>",
+}
+`;
+
 exports[`script remote 1`] = `
 Object {
   "fileName": "index.html",
   "source": "<!DOCTYPE html><html lang=\\"en\\"><head></head><body>
-              <script src=\\"https://raw.githubusercontent.com/JonasKruckenberg/rollup-plugin-sri/master/test/fixtures/1.js\\"></script>
+              <script src=\\"https://raw.githubusercontent.com/JonasKruckenberg/rollup-plugin-sri/master/test/fixtures/1.js\\" integrity=\\"sha384-3QMOmEDzIhTuE6NzXaM/8rKQTzpPNhn3apflV549nukmTTgXJ7/bZzGWVrR+3fyh\\" crossorigin=\\"anonymous\\"></script>
           
         </body></html>",
 }

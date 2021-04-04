@@ -27,6 +27,46 @@ describe('stylesheet', () => {
     expect(source).toMatchSnapshot()
   })
 
+  test('inactive', async () => {
+    const bundle = await rollup({
+      input: '1.js',
+      plugins: [
+        emitAsset('index.html', `
+        <!DOCTYPE html>
+          <html lang="en">
+          <body>
+              <link rel="stylesheet" href="1.css"></link>
+          </body>
+        </html>`),
+        emitAsset('1.css', await readFile('1.css', 'utf-8')),
+        sri({ active: false })
+      ]
+    })
+
+    const source = await getHtml(bundle)
+    expect(source).toMatchSnapshot()
+  })
+
+  test('no href', async () => {
+    const bundle = await rollup({
+      input: '1.js',
+      plugins: [
+        emitAsset('index.html', `
+        <!DOCTYPE html>
+          <html lang="en">
+          <body>
+              <link rel="stylesheet"></link>
+          </body>
+        </html>`),
+        emitAsset('1.css', await readFile('1.css', 'utf-8')),
+        sri({ active: false })
+      ]
+    })
+
+    const source = await getHtml(bundle)
+    expect(source).toMatchSnapshot()
+  })
+
   test('remote', async () => {
     const bundle = await rollup({
       input: '1.js',

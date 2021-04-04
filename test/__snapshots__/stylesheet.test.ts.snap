@@ -20,6 +20,19 @@ Object {
 }
 `;
 
+exports[`stylesheet inactive 1`] = `
+Object {
+  "fileName": "index.html",
+  "source": "
+        <!DOCTYPE html>
+          <html lang=\\"en\\">
+          <body>
+              <link rel=\\"stylesheet\\" href=\\"1.css\\"></link>
+          </body>
+        </html>",
+}
+`;
+
 exports[`stylesheet invalid hash algorithm 1`] = `
 Object {
   "fileName": "index.html",
@@ -50,11 +63,24 @@ Object {
 }
 `;
 
+exports[`stylesheet no href 1`] = `
+Object {
+  "fileName": "index.html",
+  "source": "
+        <!DOCTYPE html>
+          <html lang=\\"en\\">
+          <body>
+              <link rel=\\"stylesheet\\"></link>
+          </body>
+        </html>",
+}
+`;
+
 exports[`stylesheet remote 1`] = `
 Object {
   "fileName": "index.html",
   "source": "<!DOCTYPE html><html lang=\\"en\\"><head></head><body>
-            <link rel=\\"stylesheet\\" href=\\"https://raw.githubusercontent.com/JonasKruckenberg/rollup-plugin-sri/master/test/fixtures/1.css\\">
+            <link rel=\\"stylesheet\\" href=\\"https://raw.githubusercontent.com/JonasKruckenberg/rollup-plugin-sri/master/test/fixtures/1.css\\" integrity=\\"sha384-SI8Lww7SI7ojkIK+OHWMVYWT/SI2f5rkGslJMkk/3C9mILFt0yMwTK3mlZL+BTmO\\" crossorigin=\\"anonymous\\">
           
         </body></html>",
 }
