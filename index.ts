@@ -53,16 +53,19 @@ export default (options?: PluginOptions): Plugin => {
   const selectors = options?.selectors || ['script', 'link[rel=stylesheet]']
   const hashAlgorithms = options?.algorithms || ['sha384']
   const crossorigin = options?.crossorigin || 'anonymous'
-  const active = options?.active ?? true
   const publicPath = options?.publicPath ?? ''
+  let active = options?.active
 
   return {
     name: 'subresource-integrity',
-    async writeBundle(options, bundle) {
+    buildStart() {
+      active ??= !this.meta.watchMode
+
       hashAlgorithms
         .filter(alg => invalidHashAlgorithms.includes(alg.toLowerCase()))
         .forEach(alg => this.warn(`Insecure hashing algorithm "${alg}" will be rejected by browsers!`))
     },
+    async generateBundle(_, bundle) {
       if (!active) return
       const dir = options.dir || dirname(options.file || '')
 
