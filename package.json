@@ -30,8 +30,8 @@
     "docs": "typedoc --options ./typedoc.json"
   },
   "dependencies": {
-    "cheerio": "^1.0.0-rc.3",
-    "node-fetch": "^2.6.0"
+    "cheerio": "^1.0.0-rc.5",
+    "node-fetch": "^2.6.1"
   },
   "devDependencies": {
     "@babel/core": "^7.13.14",
