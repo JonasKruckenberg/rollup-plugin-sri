@@ -113,7 +113,7 @@ This config will generate an output like this:
 ### `Optional` active
 
 Type: _boolean_ <br/>
-**`default`** true
+**`default`** `true`
 
 Can be used to disable the plugin, for example when used together with hot-module-reloading.
 
@@ -121,8 +121,8 @@ Can be used to disable the plugin, for example when used together with hot-modul
 
 ### `Optional` algorithms
 
-Type: _Array[string]_ <br/>
-**`default`** ["sha384"]
+Type: _Array[*string* \| *sha256* \| *sha384* \| *sha512*]_ <br/>
+**`default`** `["sha384"]`
 
 A list of hashing algorithms to use when computing the integrity attribute.
 The hashing algorithm has to be supported by the nodejs version you're running on and by the Browser you're targeting.
@@ -137,7 +137,7 @@ Standard hash functions as defined in the [subresource integrity specification](
 ### `Optional` crossorigin
 
 Type: _"anonymous" | "use-credentials"_ <br/>
-**`default`** "anonymous"
+**`default`** `"anonymous"`
 
 Specifies the value for the crossorigin attribute.
 This attribute has to be set to prevent cross-origin data leakage.
@@ -149,13 +149,22 @@ see: [the W3C spec](https://www.w3.org/TR/SRI/#cross-origin-data-leakage) for de
 ### `Optional` selectors
 
 Type: _Array[string]_ <br/>
-**`default`** ["script","link[rel=stylesheet]"]
+**`default`** ` ["script","link[rel=stylesheet]"]`
 
 A list of strings you can provide that the plugin will use to match html tags with.
 It will then try to compute an integrity attribute for the matched tag.
 Currently it only matches script tags and link with rel=stylesheet as per specification.
 see [the W3C spec](https://www.w3.org/TR/SRI/#elements) for more information.
 The selector syntax is the same as jQuery's.
+
+
+### `Optional` publicPath
+
+Type: _string_
+**`default`** `""`
+
+Commonly assets will be prefixed with a public path, such as "/" or "/assets".
+Setting this option to the public path allows plugin-sri to resolve those imports.
 
 ## Contributing
 
@@ -164,7 +173,7 @@ When working on a feature contribution, please ensure the following things:
 
 - Keep you code clear and readable.
 - Write unit tests for your feature (run `yarn test`).
-- Use the convetional-commits style when writing commit messages. ( When you're unsure about how to do this, type `yarn commit` ) And you'll be guided through the process.
+- Use the convetional-commits style when writing commit messages.
 - Use appropriate commit types, When adding tests use `test:` when adding a feature use `feat:` etc.
 - Split up the files you commit logically not by workday or something else, for example all test belonging to a new feature should be in their own commit and not bunched together with other changes or tests for other features.
 
