@@ -67,10 +67,9 @@ export default (options?: PluginOptions): Plugin => {
     },
     async generateBundle(_, bundle) {
       if (!active) return
-      const dir = options.dir || dirname(options.file || '')
 
       for (const name in bundle) {
-        const chunk = bundle[name] 
+        const chunk = bundle[name]
 
         if (isHtmlAsset(chunk)) {
           const $ = cheerio.load(chunk.source.toString())
@@ -82,10 +81,12 @@ export default (options?: PluginOptions): Plugin => {
             
             const url = ($(el).attr('href') || $(el).attr('src'))?.replace(publicPath, '')
             let buf: Buffer
-            if (url.startsWith('http:')) {
+            if (url in bundle) {
+              //@ts-ignore
+              buf = Buffer.from(bundle[url].code || bundle[url].source)
+            } else if (url.startsWith('http:')) {
               buf = await (await fetch(url)).buffer()
             } else {
-              buf = await fs.readFile(join(dir || '', url))
             }
 
             const hashes = hashAlgorithms.map((algorithm) => generateIdentity(buf, algorithm))
@@ -94,7 +95,7 @@ export default (options?: PluginOptions): Plugin => {
             $(el).attr('crossorigin', crossorigin)
           }
 
-          await fs.writeFile(join(dir || '', name), $.html())
+          chunk.source = $.html()
         }
       }
     }
