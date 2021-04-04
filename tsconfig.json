@@ -1,5 +1,7 @@
 {
 	"compilerOptions": {
+		"target": "es2019",
+		"module": "esnext",
 		"alwaysStrict": true,
 		"declaration": true,
 		"declarationDir": "dist",
