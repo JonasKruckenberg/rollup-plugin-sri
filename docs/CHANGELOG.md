@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/JonasKruckenberg/rollup-plugin-sri/compare/v1.3.0...v1.3.1) (2021-04-04)
+
+
+### Bug Fixes
+
+* match https urls as well ([0ff33b9](https://github.com/JonasKruckenberg/rollup-plugin-sri/commit/0ff33b910f9c14038f75a30538c97bdbeb7b3067))
+
 # [1.3.0](https://github.com/JonasKruckenberg/rollup-plugin-sri/compare/v1.2.8...v1.3.0) (2021-04-04)
 
 
