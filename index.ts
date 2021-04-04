@@ -23,7 +23,7 @@ interface PluginOptions {
    * > they generally do not accept `sha1` and `md5` hashes.
    * @default ["sha384"]
    */
-  algorithms?: string[]
+  algorithms?: 'sha256'[] | 'sha384'[] | 'sha512'[] | string[]
   /**
    * Specifies the value for the crossorigin attribute.
    * This attribute has to be set on the generated html tags to prevent cross-origin data leakage.
@@ -40,6 +40,8 @@ interface PluginOptions {
   active?: boolean
 }
 
+const invalidHashAlgorithms = ['sha1', 'md5']
+
 export default (options?: PluginOptions): Plugin => {
   const selectors = options?.selectors || ['script', 'link[rel=stylesheet]']
   const hashAlgorithms = options?.algorithms || ['sha384']
@@ -49,6 +51,10 @@ export default (options?: PluginOptions): Plugin => {
   return {
     name: 'subresource-integrity',
     async writeBundle(options, bundle) {
+      hashAlgorithms
+        .filter(alg => invalidHashAlgorithms.includes(alg.toLowerCase()))
+        .forEach(alg => this.warn(`Insecure hashing algorithm "${alg}" will be rejected by browsers!`))
+    },
       if (!active) return
       const dir = options.dir || dirname(options.file || '')
 
