@@ -1,3 +1,25 @@
+# [1.3.0](https://github.com/JonasKruckenberg/rollup-plugin-sri/compare/v1.2.8...v1.3.0) (2021-04-04)
+
+
+### Bug Fixes
+
+* activate plugin depending on the mode ([5baf008](https://github.com/JonasKruckenberg/rollup-plugin-sri/commit/5baf00838332c3341eb5ecac15a07d572528a615))
+* keep processing files after error ([ba3ec8c](https://github.com/JonasKruckenberg/rollup-plugin-sri/commit/ba3ec8c908bd07d4d22c5266125bfd7237248fee))
+* support uppercase hash algorithms ([dbe04a6](https://github.com/JonasKruckenberg/rollup-plugin-sri/commit/dbe04a697ae228e4b27a7adb9b070ae858aa2dbb))
+
+
+### Features
+
+* add support for different public paths ([c7fb756](https://github.com/JonasKruckenberg/rollup-plugin-sri/commit/c7fb756e451a8918ffaf750ccede22a7255133b7))
+* move the handling from writeBundle to generateBundle ([9b5d30e](https://github.com/JonasKruckenberg/rollup-plugin-sri/commit/9b5d30ed643120fb598c8b7abf8e53e547e247a4))
+* warn on deprecated hash algorithm ([888da96](https://github.com/JonasKruckenberg/rollup-plugin-sri/commit/888da96439ad3b479e596a15a83c3ed4c9e5d24e))
+
+
+### Performance Improvements
+
+* remove unneeded dependencies ([931ba5a](https://github.com/JonasKruckenberg/rollup-plugin-sri/commit/931ba5a9aa63f0d7ab32ee6c02e737740b9d3f0b))
+* update version to compile to from es3 to es2019 ([02ff0af](https://github.com/JonasKruckenberg/rollup-plugin-sri/commit/02ff0afc5cfb73cb3cf15458059ea295b2991b1a))
+
 ## [1.2.8](https://github.com/JonasKruckenberg/rollup-plugin-sri/compare/v1.2.7...v1.2.8) (2021-03-30)
 
 
