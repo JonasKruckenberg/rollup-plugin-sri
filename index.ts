@@ -38,6 +38,13 @@ interface PluginOptions {
    * @default true
    */
   active?: boolean
+
+  /**
+   * Commonly assets will be prefixed with a public path, such as "/" or "/assets". 
+   * Setting this option to the public path allows plugin-sri to resolve those imports.
+   * @default ""
+   */
+  publicPath?: string
 }
 
 const invalidHashAlgorithms = ['sha1', 'md5']
@@ -47,6 +54,7 @@ export default (options?: PluginOptions): Plugin => {
   const hashAlgorithms = options?.algorithms || ['sha384']
   const crossorigin = options?.crossorigin || 'anonymous'
   const active = options?.active ?? true
+  const publicPath = options?.publicPath ?? ''
 
   return {
     name: 'subresource-integrity',
@@ -69,6 +77,7 @@ export default (options?: PluginOptions): Plugin => {
             const url = $(el).attr('href') || $(el).attr('src')
             if (!url) return            
             
+            const url = ($(el).attr('href') || $(el).attr('src'))?.replace(publicPath, '')
             let buf: Buffer
             if (url.startsWith('http:')) {
               buf = await (await fetch(url)).buffer()
