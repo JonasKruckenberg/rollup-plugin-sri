@@ -54,13 +54,11 @@ export default (options?: PluginOptions): Plugin => {
   const hashAlgorithms = options?.algorithms || ['sha384']
   const crossorigin = options?.crossorigin || 'anonymous'
   const publicPath = options?.publicPath ?? ''
-  let active = options?.active
+  let active = options?.active ?? true
 
   return {
     name: 'subresource-integrity',
     buildStart() {
-      active ??= !this.meta.watchMode
-
       hashAlgorithms
         .filter(alg => invalidHashAlgorithms.includes(alg.toLowerCase()))
         .forEach(alg => this.warn(`Insecure hashing algorithm "${alg}" will be rejected by browsers!`))
