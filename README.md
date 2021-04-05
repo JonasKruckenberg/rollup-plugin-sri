@@ -160,7 +160,7 @@ export default defineConfig({
 Type: _boolean_ <br/>
 **`default`** `true`
 
-Can be used to disable the plugin, for example when used together with hot-module-reloading.
+Can be used to disable the plugin, as subresource integrities might cause issues with hot module reloading.
 
 ---
 

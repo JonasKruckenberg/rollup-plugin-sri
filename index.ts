@@ -34,7 +34,7 @@ export interface PluginOptions {
   crossorigin?: 'anonymous' | 'use-credentials'
 
   /**
-   * Can be used to disable the plugin, for example when used together with hot-module-reloading.
+   * Can be used to disable the plugin, as subresource integrities might cause issues with hot module reloading.
    * @default true
    */
   active?: boolean
