@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`vite basic 1`] = `
+Object {
+  "fileName": "index.html",
+  "source": "<!DOCTYPE html><html lang=\\"en\\"><head>
+    <meta charset=\\"UTF-8\\">
+    <meta http-equiv=\\"X-UA-Compatible\\" content=\\"IE=edge\\">
+    <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1.0\\">
+    <title>Document</title>
+<script type=\\"module\\" crossorigin=\\"anonymous\\" src=\\"/assets/index.aa78867d.js\\" integrity=\\"sha384-mB+SG9rRCWqiveE+JXQxMJkGnWb3UovH9/Y5ohGCtOlS5E2Z3R3RTq28TldJL7/0\\"></script>
+</head>
+<body>
+    
+
+</body></html>",
+}
+`;
