@@ -18,11 +18,11 @@
 
 • `Optional` **active**: *boolean*
 
-Can be used to disable the plugin, for example when used together with hot-module-reloading.
+Can be used to disable the plugin, as subresource integrities might cause issues with hot module reloading.
 
 **`default`** true
 
-Defined in: [index.ts:40](https://github.com/JonasKruckenberg/rollup-plugin-sri/blob/467e3ca/index.ts#L40)
+Defined in: [index.ts:40](https://github.com/JonasKruckenberg/rollup-plugin-sri/blob/3aefbed/index.ts#L40)
 
 ___
 
@@ -40,7 +40,7 @@ Standard hash functions as defined in the [subresource integrity specification](
 
 **`default`** ["sha384"]
 
-Defined in: [index.ts:26](https://github.com/JonasKruckenberg/rollup-plugin-sri/blob/467e3ca/index.ts#L26)
+Defined in: [index.ts:26](https://github.com/JonasKruckenberg/rollup-plugin-sri/blob/3aefbed/index.ts#L26)
 
 ___
 
@@ -55,7 +55,7 @@ see: [the W3C spec](https://www.w3.org/TR/SRI/#cross-origin-data-leakage) for de
 
 **`default`** "anonymous"
 
-Defined in: [index.ts:34](https://github.com/JonasKruckenberg/rollup-plugin-sri/blob/467e3ca/index.ts#L34)
+Defined in: [index.ts:34](https://github.com/JonasKruckenberg/rollup-plugin-sri/blob/3aefbed/index.ts#L34)
 
 ___
 
@@ -68,7 +68,7 @@ Setting this option to the public path allows plugin-sri to resolve those import
 
 **`default`** ""
 
-Defined in: [index.ts:47](https://github.com/JonasKruckenberg/rollup-plugin-sri/blob/467e3ca/index.ts#L47)
+Defined in: [index.ts:47](https://github.com/JonasKruckenberg/rollup-plugin-sri/blob/3aefbed/index.ts#L47)
 
 ___
 
@@ -84,4 +84,4 @@ The selector syntax is the same as jQuery's.
 
 **`default`** ["script","link[rel=stylesheet]"]
 
-Defined in: [index.ts:15](https://github.com/JonasKruckenberg/rollup-plugin-sri/blob/467e3ca/index.ts#L15)
+Defined in: [index.ts:15](https://github.com/JonasKruckenberg/rollup-plugin-sri/blob/3aefbed/index.ts#L15)

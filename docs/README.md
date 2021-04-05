@@ -30,4 +30,4 @@ Name | Type |
 
 **Returns:** *Plugin*
 
-Defined in: [index.ts:50](https://github.com/JonasKruckenberg/rollup-plugin-sri/blob/467e3ca/index.ts#L50)
+Defined in: [index.ts:50](https://github.com/JonasKruckenberg/rollup-plugin-sri/blob/3aefbed/index.ts#L50)
