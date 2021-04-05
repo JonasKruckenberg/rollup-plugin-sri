@@ -224,6 +224,11 @@ When working on a feature contribution, please ensure the following things:
 - Use appropriate commit types, When adding tests use `test:` when adding a feature use `feat:` etc.
 - Split up the files you commit logically not by workday or something else, for example all test belonging to a new feature should be in their own commit and not bunched together with other changes or tests for other features.
 
+## Sponsoring
+
+Are you using imagetools in your company, in a commercial project or just feeling generous? <br>
+Consider [sponsoring me on GitHub](https://github.com/sponsors/JonasKruckenberg) to support the development and get your companies logo featured!
+
 ## License
 
 [MIT © Jonas Kruckenberg.](LICENSE)
