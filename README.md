@@ -1,9 +1,36 @@
 # rollup-plugin-sri
 
 > Because web security should not be difficult.
-> [![Codecov Coverage](https://img.shields.io/codecov/c/github/JonasKruckenberg/rollup-plugin-sri/master.svg?style=flat-square)](https://codecov.io/gh/JonasKruckenberg/rollup-plugin-sri/)
+ 
+[![Codecov Coverage](https://img.shields.io/codecov/c/github/JonasKruckenberg/rollup-plugin-sri/master.svg?style=flat-square)](https://codecov.io/gh/JonasKruckenberg/rollup-plugin-sri/)
+[![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
+![npm](https://img.shields.io/npm/v/rollup-plugin-sri?style=flat-square)
 
 This plugin adds [subresource integrity](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity) attributes to all resources imported by your html files.
+
+## Table of Contents
+
+- [Install](#install)
+- [Usage](#usage)
+  - [Simple](#simple)
+  - [External resources](#external-resources)
+  - [Multiple hashing algorithms](#multiple-hashing-algorithms)
+  - [Usage with Vite](#usage-with-vite)
+- [Options](#options)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Install
+
+via npm:
+```
+npm install --save-dev rollup-plugin-sri
+```
+
+or via yarn:
+```
+yarn add -D rollup-plugin-sri
+```
 
 ## Usage
 
@@ -26,7 +53,7 @@ export default {
 
 ## Examples
 
-### Basic
+### Simple
 
 You might have a script tag in your html to include a javascript file like this:
 
@@ -44,7 +71,7 @@ Which then gets turned into this:
 ></script>
 ```
 
-### External dependencies
+### External resources
 
 Let's say you're using Bootstrap on your page, but it get dynamically injected so you can't set the integrity attribute yourself. <br />
 The html will then look something like this:
@@ -105,6 +132,24 @@ This config will generate an output like this:
 > 1. You can in theory use any hashing algorithm you want, however most browser only support the sha family of hashing algorithms like sha256, sha384 and sha512
 > 2. Browser vendors are actively discouraged from using `md5` and `sha1` as they are not considered to be secure enough.
 >    Most modern browser won't accept them at all.
+
+### Usage with Vite
+
+To use this plugin together with [vite](https://vitejs.dev) use the configuration below.
+
+```js
+import { defineConfig } from "vite"
+import sri from "rollup-plugin-sri"
+
+export default defineConfig({
+  plugins: [
+    {
+      enforce: "post",
+      ...sri({ publicPath: "/" })
+    }
+  ]
+})
+```
 
 ## Options
 
@@ -179,4 +224,4 @@ When working on a feature contribution, please ensure the following things:
 
 ## License
 
-[MIT](https://choosealicense.com/licenses/mit/)
+[MIT © Jonas Kruckenberg.](LICENSE)
