@@ -11,7 +11,7 @@ plugins:
           release: patch
   - - '@semantic-release/release-notes-generator'
   - - '@semantic-release/changelog'
-    - changelogFile: docs/CHANGELOG.md
+    - changelogFile: CHANGELOG.md
   - - '@semantic-release/github'
     - assignees:
         - JonasKruckenberg
