@@ -4,7 +4,7 @@ exports[`stylesheet basic 1`] = `
 Object {
   "fileName": "index.html",
   "source": "<!DOCTYPE html><html lang=\\"en\\"><head></head><body>
-              <link rel=\\"stylesheet\\" href=\\"1.css\\" integrity=\\"sha384-SI8Lww7SI7ojkIK+OHWMVYWT/SI2f5rkGslJMkk/3C9mILFt0yMwTK3mlZL+BTmO\\" crossorigin=\\"anonymous\\">
+              <link rel=\\"stylesheet\\" href=\\"1.css\\" integrity=\\"sha384-AKrtDL+trPi0sSrQYQGOFhGDKNWbKkBUXU1xuVjNgwU7GQTAZsTVmq/3n2BoQVRk\\" crossorigin=\\"anonymous\\">
           
         </body></html>",
 }
@@ -14,7 +14,7 @@ exports[`stylesheet crossorigin attribute 1`] = `
 Object {
   "fileName": "index.html",
   "source": "<!DOCTYPE html><html lang=\\"en\\"><head></head><body>
-            <link rel=\\"stylesheet\\" href=\\"1.css\\" integrity=\\"sha384-SI8Lww7SI7ojkIK+OHWMVYWT/SI2f5rkGslJMkk/3C9mILFt0yMwTK3mlZL+BTmO\\" crossorigin=\\"use-credentials\\">
+            <link rel=\\"stylesheet\\" href=\\"1.css\\" integrity=\\"sha384-AKrtDL+trPi0sSrQYQGOFhGDKNWbKkBUXU1xuVjNgwU7GQTAZsTVmq/3n2BoQVRk\\" crossorigin=\\"use-credentials\\">
           
         </body></html>",
 }
@@ -37,7 +37,7 @@ exports[`stylesheet invalid hash algorithm 1`] = `
 Object {
   "fileName": "index.html",
   "source": "<!DOCTYPE html><html lang=\\"en\\"><head></head><body>
-            <link rel=\\"stylesheet\\" href=\\"1.css\\" integrity=\\"sha1-dph/sbf7TTz0ynQdi1KxFDfv1Sg=\\" crossorigin=\\"anonymous\\">
+            <link rel=\\"stylesheet\\" href=\\"1.css\\" integrity=\\"sha1-9TLSuSDha/bdMgalDUkaRY7jwy0=\\" crossorigin=\\"anonymous\\">
           
         </body></html>",
 }
@@ -57,7 +57,7 @@ exports[`stylesheet multiple hash algorithms 1`] = `
 Object {
   "fileName": "index.html",
   "source": "<!DOCTYPE html><html lang=\\"en\\"><head></head><body>
-            <link rel=\\"stylesheet\\" href=\\"1.css\\" integrity=\\"sha256-CWcnFgaWAReWDakUpF4oUc3hOL5tBSLTPTAxbLA5sbg= sha384-SI8Lww7SI7ojkIK+OHWMVYWT/SI2f5rkGslJMkk/3C9mILFt0yMwTK3mlZL+BTmO sha512-OSSE/t48EtyjumYELSZNOWlSBXEq7qRMfHWCCtb0bbq4fDCWr07dsRtMVfk3Bi6Hi4H/oK1ba703f5bvlCIIvA== whirlpool-ysTPMKhdX5R3Rf4gggA3rE7bwgcs0vUkvWw5w4b5FOJtcxcgP6J0n2veREIJjBb9ptUrsSVi54ugn2JdLGZekA==\\" crossorigin=\\"anonymous\\">
+            <link rel=\\"stylesheet\\" href=\\"1.css\\" integrity=\\"sha256-r90EXPURW4FdOrgIF/lWOvMbV1GVl9O4UX1jbij/21U= sha384-AKrtDL+trPi0sSrQYQGOFhGDKNWbKkBUXU1xuVjNgwU7GQTAZsTVmq/3n2BoQVRk sha512-0Ki+nNBDkz68tV80xqoUJIyDydiLKTLh4cterOF9anqT5LvaWNW81m84iQHHT8ZH48//3jTYhtbisjEISPmEGQ== whirlpool-aewDddgfdCVAeqt6vR0sKeV5zwfP91pKeggNeuJ0N7SmtWx8jYzg1dYSsW2TFwaCXY4mn6kwk3RtvI1n0JV5Ug==\\" crossorigin=\\"anonymous\\">
           
         </body></html>",
 }
@@ -90,7 +90,7 @@ exports[`stylesheet uppercase hash algorithms 1`] = `
 Object {
   "fileName": "index.html",
   "source": "<!DOCTYPE html><html lang=\\"en\\"><head></head><body>
-            <link rel=\\"stylesheet\\" href=\\"1.css\\" integrity=\\"sha256-CWcnFgaWAReWDakUpF4oUc3hOL5tBSLTPTAxbLA5sbg= sha384-SI8Lww7SI7ojkIK+OHWMVYWT/SI2f5rkGslJMkk/3C9mILFt0yMwTK3mlZL+BTmO sha512-OSSE/t48EtyjumYELSZNOWlSBXEq7qRMfHWCCtb0bbq4fDCWr07dsRtMVfk3Bi6Hi4H/oK1ba703f5bvlCIIvA==\\" crossorigin=\\"anonymous\\">
+            <link rel=\\"stylesheet\\" href=\\"1.css\\" integrity=\\"sha256-r90EXPURW4FdOrgIF/lWOvMbV1GVl9O4UX1jbij/21U= sha384-AKrtDL+trPi0sSrQYQGOFhGDKNWbKkBUXU1xuVjNgwU7GQTAZsTVmq/3n2BoQVRk sha512-0Ki+nNBDkz68tV80xqoUJIyDydiLKTLh4cterOF9anqT5LvaWNW81m84iQHHT8ZH48//3jTYhtbisjEISPmEGQ==\\" crossorigin=\\"anonymous\\">
           
         </body></html>",
 }
