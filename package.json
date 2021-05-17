@@ -27,23 +27,19 @@
     "build": "rollup -c",
     "test": "jest",
     "coverage": "jest --collectCoverage",
-    "docs": "typedoc --options ./typedoc.json"
+    "docs": "typedoc --options ./typedoc.json",
+    "release": "yarn build && yarn changeset publish"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.5",
     "node-fetch": "^2.6.1"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.16.0",
     "@babel/core": "^7.13.14",
     "@babel/preset-env": "^7.13.12",
     "@babel/preset-typescript": "^7.13.0",
     "@rollup/plugin-html": "^0.2.3",
-    "@semantic-release/changelog": "^5.0.1",
-    "@semantic-release/commit-analyzer": "^8.0.1",
-    "@semantic-release/git": "^9.0.0",
-    "@semantic-release/github": "^7.0.7",
-    "@semantic-release/npm": "^7.0.5",
-    "@semantic-release/release-notes-generator": "^9.0.1",
     "@types/cheerio": "^0.22.18",
     "@types/jest": "^26.0.4",
     "@types/node": "^15.0.1",
@@ -52,7 +48,6 @@
     "jest": "^26.1.0",
     "rollup": "^2.44.0",
     "rollup-plugin-typescript2": "^0.30.0",
-    "semantic-release": "^17.4.2",
     "typedoc": "^0.20.34",
     "typedoc-plugin-markdown": "^3.6.0",
     "typescript": "^4.0.3",
