@@ -5,5 +5,7 @@
 # to native line endings on checkout.
 *.ts text
 *.js text
+*.css text
+*.json text
 *.md text
 *.snap text
