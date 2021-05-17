@@ -1,7 +1,7 @@
 import { getHtml, emitAsset } from './util'
 import { rollup } from 'rollup'
 import { join } from 'path'
-import { readFile } from 'fs/promises'
+import { promises as fsp } from 'fs'
 import sri from '../index'
 
 process.chdir(join(__dirname, 'fixtures'));
@@ -18,7 +18,7 @@ describe('stylesheet', () => {
               <link rel="stylesheet" href="1.css"></link>
           </body>
         </html>`),
-        emitAsset('1.css', await readFile('1.css', 'utf-8')),
+        emitAsset('1.css', await fsp.readFile('1.css', 'utf-8')),
         sri()
       ]
     })
@@ -38,7 +38,7 @@ describe('stylesheet', () => {
               <link rel="stylesheet" href="1.css"></link>
           </body>
         </html>`),
-        emitAsset('1.css', await readFile('1.css', 'utf-8')),
+        emitAsset('1.css', await fsp.readFile('1.css', 'utf-8')),
         sri({ active: false })
       ]
     })
@@ -58,7 +58,7 @@ describe('stylesheet', () => {
               <link rel="stylesheet"></link>
           </body>
         </html>`),
-        emitAsset('1.css', await readFile('1.css', 'utf-8')),
+        emitAsset('1.css', await fsp.readFile('1.css', 'utf-8')),
         sri({ active: false })
       ]
     })
@@ -97,7 +97,7 @@ describe('stylesheet', () => {
             <link rel="stylesheet" href="1.css"></link>
           </body>
         </html>`),
-        emitAsset('1.css', await readFile('1.css', 'utf-8')),
+        emitAsset('1.css', await fsp.readFile('1.css', 'utf-8')),
         sri({ algorithms: ['sha256', 'sha384', 'sha512', 'whirlpool'] })
       ]
     })
@@ -117,7 +117,7 @@ describe('stylesheet', () => {
             <link rel="stylesheet" href="1.css"></link>
           </body>
         </html>`),
-        emitAsset('1.css', await readFile('1.css', 'utf-8')),
+        emitAsset('1.css', await fsp.readFile('1.css', 'utf-8')),
         sri({ algorithms: ['SHA256', 'SHA384', 'SHA512'] })
       ]
     })
@@ -140,7 +140,7 @@ describe('stylesheet', () => {
             <link rel="stylesheet" href="1.css"></link>
           </body>
         </html>`),
-        emitAsset('1.css', await readFile('1.css', 'utf-8')),
+        emitAsset('1.css', await fsp.readFile('1.css', 'utf-8')),
         sri({ algorithms: ['sha1'] })
       ]
     })
@@ -162,7 +162,7 @@ describe('stylesheet', () => {
             <link rel="stylesheet" href="1.css"></link>
           </body>
         </html>`),
-        emitAsset('1.css', await readFile('1.css', 'utf-8')),
+        emitAsset('1.css', await fsp.readFile('1.css', 'utf-8')),
         sri({ crossorigin: 'use-credentials' })
       ]
     })
@@ -185,7 +185,7 @@ describe('stylesheet', () => {
             <link rel="stylesheet" href="invalid.css"></link>
           </body>
         </html>`),
-        emitAsset('1.css', await readFile('1.css', 'utf-8')),
+        emitAsset('1.css', await fsp.readFile('1.css', 'utf-8')),
         sri({ crossorigin: 'use-credentials' })
       ]
     })
