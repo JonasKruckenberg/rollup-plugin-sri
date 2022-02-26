@@ -105,7 +105,7 @@ export default (options?: PluginOptions): Plugin => {
 }
 
 function generateIdentity(source: Buffer, alg: string) {
-  const hash = createHash(alg).update(source).digest().toString('base64')
+  const hash = createHash(alg).update(source).digest('base64')
   return `${alg.toLowerCase()}-${hash}`
 }
 
