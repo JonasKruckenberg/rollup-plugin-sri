@@ -77,8 +77,8 @@ export default (options?: PluginOptions): Plugin => {
             const url = ($(el).attr('href') || $(el).attr('src'))?.replace(publicPath, '')
             if (!url) continue
 
-						const nointegrity = $(el).is('[nointegrity]')
-						if(nointegrity) continue
+            const nointegrity = $(el).is('[nointegrity]')
+            if(nointegrity) continue
             
             let buf: Buffer
             if (url in bundle) {
