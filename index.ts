@@ -51,7 +51,7 @@ export interface PluginOptions {
    * Strings have to be equal to the url of the asset that shall not be parsed.
    * @default []
    */
-  exclude?: Array<string | RegExp>
+  exclude?: Array<string | RegExp | ((url: string) => boolean)> 
 }
 
 const invalidHashAlgorithms = ['sha1', 'md5']
@@ -88,13 +88,18 @@ export default (options?: PluginOptions): Plugin => {
             const nointegrity = $(el).is('[data-nointegrity]')
             if(nointegrity) continue
             
-            let excludeByPattern = exclude.some((pattern: string | RegExp) => {
-              if(typeof(pattern) === 'string') {
-                return url === pattern
-              } else if (pattern instanceof RegExp) {
-                return pattern.test(url)
+            let excludeByPattern = exclude.some(
+              (pattern: string | RegExp | ((url: string) => boolean)) => {
+                if (typeof pattern === 'string') {
+                  return url === pattern
+                } else if (pattern instanceof RegExp) {
+                  return pattern.test(url)
+                } else if (typeof pattern === 'function') {
+                  return pattern(url)
+                }
               }
-            })
+            )
+
             if(excludeByPattern) continue
 
             let buf: Buffer

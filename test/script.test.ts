@@ -227,4 +227,26 @@ describe('script', () => {
     const source = await getHtml(bundle)
     expect(source).toMatchSnapshot()
   })
+
+  test('exclude option-function', async () => {
+    const bundle = await rollup({
+      input: '1.js',
+      plugins: [
+        emitAsset('index.html', `
+        <!DOCTYPE html>
+          <html lang="en">
+          <body>
+            <script src="1.no.js"></script>
+            <script src="2.js"></script>
+            <script src="vendor.1af22ac.js"></script>
+            <script src="1.js"></script>
+          </body>
+        </html>`),
+        sri({ exclude: ['2.js', /[no]{2}\.js$/g, (url: string) => url.includes('vendor.')] })
+      ]
+    })
+
+    const source = await getHtml(bundle)
+    expect(source).toMatchSnapshot()
+  })
 })
