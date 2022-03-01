@@ -37,7 +37,6 @@
   "devDependencies": {
     "@changesets/cli": "^2.16.0",
     "@rollup/plugin-html": "^0.2.3",
-    "@rollup/pluginutils": "^4.1.2",
     "@types/cheerio": "^0.22.18",
     "@types/jest": "^26.0.4",
     "@types/node": "^15.0.1",

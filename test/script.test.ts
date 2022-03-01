@@ -205,4 +205,26 @@ describe('script', () => {
     const source = await getHtml(bundle)
     expect(source).toMatchSnapshot()
   })
+
+  test('exclude option', async () => {
+    const bundle = await rollup({
+      input: '1.js',
+      plugins: [
+        emitAsset('index.html', `
+        <!DOCTYPE html>
+          <html lang="en">
+          <body>
+            <script src="1.no.js"></script>
+            <script src="2.js"></script>
+            <script src="vendor.1af22ac.js"></script>
+            <script src="1.js"></script>
+          </body>
+        </html>`),
+        sri({ exclude: ['2.js', /.*\.no\.js$/g, /vendor\.[a-f0-9]+\.js$/g] })
+      ]
+    })
+
+    const source = await getHtml(bundle)
+    expect(source).toMatchSnapshot()
+  })
 })

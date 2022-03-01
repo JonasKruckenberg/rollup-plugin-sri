@@ -10,6 +10,19 @@ Object {
 }
 `;
 
+exports[`script exclude option 1`] = `
+Object {
+  "fileName": "index.html",
+  "source": "<!DOCTYPE html><html lang=\\"en\\"><head></head><body>
+            <script src=\\"1.no.js\\"></script>
+            <script src=\\"2.js\\"></script>
+            <script src=\\"vendor.1af22ac.js\\"></script>
+            <script src=\\"1.js\\" integrity=\\"sha384-hxLOTPNeroviduGwj6Po7ksKHF0YRfwVZGjcsAnyJGlTHnQFW/268mrNS7EhSMvT\\" crossorigin=\\"anonymous\\"></script>
+          
+        </body></html>",
+}
+`;
+
 exports[`script crossorigin attribute 1`] = `
 Object {
   "fileName": "index.html",

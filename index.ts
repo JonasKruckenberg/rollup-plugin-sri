@@ -45,6 +45,13 @@ export interface PluginOptions {
    * @default ""
    */
   publicPath?: string
+
+  /**
+   * Strings and regular expressions to exclude specific assets.
+   * Strings have to be equal to the url of the asset that shall not be parsed.
+   * @default []
+   */
+  exclude?: Array<string | RegExp>
 }
 
 const invalidHashAlgorithms = ['sha1', 'md5']
@@ -54,6 +61,7 @@ export default (options?: PluginOptions): Plugin => {
   const hashAlgorithms = options?.algorithms || ['sha384']
   const crossorigin = options?.crossorigin || 'anonymous'
   const publicPath = options?.publicPath ?? ''
+  const exclude = options?.exclude ?? []
   let active = options?.active ?? true
 
   return {
@@ -80,6 +88,15 @@ export default (options?: PluginOptions): Plugin => {
             const nointegrity = $(el).is('[data-nointegrity]')
             if(nointegrity) continue
             
+            let excludeByPattern = exclude.some((pattern: string | RegExp) => {
+              if(typeof(pattern) === 'string') {
+                return url === pattern
+              } else if (pattern instanceof RegExp) {
+                return pattern.test(url)
+              }
+            })
+            if(excludeByPattern) continue
+
             let buf: Buffer
             if (url in bundle) {
               //@ts-ignore
