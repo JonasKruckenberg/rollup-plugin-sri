@@ -73,6 +73,16 @@ Object {
 }
 `;
 
+exports[`script nointegrity attribute 1`] = `
+Object {
+  "fileName": "index.html",
+  "source": "<!DOCTYPE html><html lang=\\"en\\"><head></head><body>
+              <script data-nointegrity=\\"\\" src=\\"1.js\\"></script>
+          
+        </body></html>",
+}
+`;
+
 exports[`script remote 1`] = `
 Object {
   "fileName": "index.html",

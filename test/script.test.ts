@@ -186,4 +186,23 @@ describe('script', () => {
     expect(onwarn.mock.calls).toHaveLength(1)
     expect(onwarn.mock.calls[0][0]).toHaveProperty('message','could not resolve resource "invalid.js"!')  
   })
+
+  test('nointegrity attribute', async () => {
+    const bundle = await rollup({
+      input: '1.js',
+      plugins: [
+        emitAsset('index.html', `
+        <!DOCTYPE html>
+          <html lang="en">
+          <body>
+              <script data-nointegrity="" src="1.js"></script>
+          </body>
+        </html>`),
+        sri()
+      ]
+    })
+
+    const source = await getHtml(bundle)
+    expect(source).toMatchSnapshot()
+  })
 })
