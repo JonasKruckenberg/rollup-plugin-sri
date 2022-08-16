@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.5",
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^3.2.10"
   },
   "devDependencies": {
     "@changesets/cli": "^2.16.0",
