@@ -1,4 +1,4 @@
-> ## **NOTE**: ‼️ This project will be archived in **1 Month**! 
+> ## **NOTE**: ‼️ This project will be archived in **2 Weeks**! 
 > 
 > If you're interested in why or potentially continue maintaining this repo [read here]()
 
