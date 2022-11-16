@@ -1,3 +1,9 @@
+> **NOTE**: ‼️ This project will be archived in **1 Month**! 
+> If you're interested in why or potentially continue maintaining this repo [read here]()
+
+<br />
+<br />
+
 # rollup-plugin-sri
 
 > Because web security should not be difficult.
