@@ -1,6 +1,4 @@
 > ## **NOTE**: ‼️ This project is archived **Do not use**! 
-> 
-> If you're interested in why or potentially continue maintaining this repo [read here](https://github.com/JonasKruckenberg/rollup-plugin-sri/issues/393)
 
 <br />
 <br />
